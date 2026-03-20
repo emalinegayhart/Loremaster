@@ -16,13 +16,13 @@ Loremaster is a RAG (Retrieval-Augmented Generation) chat app built on top of 23
 
 **Elasticsearch Query Design:**
 
-- Field weights (title^4, summary^2, content) boosts relevance score based on where the match is found. A match in the title is 4x more relevant than a match in the body. Justification: Someone searching "Arthas" probably wants the Arthas page, not every page that mentions him in passing.
+- Field weights (title^4, summary^2, content) boosts relevance score based on where the match is found. A match in the title is 4x more relevant than a match in the body. _Justification: Someone searching "Arthas" probably wants the Arthas page, not every page that mentions him in passing._
 
-- Fuzziness (AUTO) handles typos and misspellings automatically. AUTO sets the edit distance based on word length. Short words require exact matches, longer words allow 1-2 character differences. Example: "Arthas" still finds "Arthes", "Frostmourne" still finds "Frostmourn".
+- Fuzziness (AUTO) handles typos and misspellings automatically. AUTO sets the edit distance based on word length. Short words require exact matches, longer words allow 1-2 character differences. _Example: "Arthas" still finds "Arthes", "Frostmourne" still finds "Frostmourn"._
 
-- English analyzer applies stemming and stop word removal at index and query time, which means users don't need to type exact forms of words to get relevant results. Example: "Running" matches "run", "the sword" strips "the".
+- English analyzer applies stemming and stop word removal at index and query time, which means users don't need to type exact forms of words to get relevant results. _Example: "Running" matches "run", "the sword" strips "the"._
 
-- best_fields multi-match type takes the highest scoring field rather than summing all fields. This prevents a document from ranking highly just because it mentions the search term across many fields — the best single match wins.
+- best_fields multi-match type takes the highest scoring field rather than summing all fields. This prevents a document from ranking highly just because it mentions the search term across many fields.
 
 **Test Plan:**
 
