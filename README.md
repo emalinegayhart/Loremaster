@@ -24,6 +24,13 @@ Loremaster is a RAG (Retrieval-Augmented Generation) chat app built on top of 23
 
 - best_fields multi-match type takes the highest scoring field rather than summing all fields. This prevents a document from ranking highly just because it mentions the search term across many fields.
 
+- minimum_should_match (75%) requires at least 75% of search terms to match. This prevents broad multi-word queries from returning loosely related results. **Example:** "Arthas Lich King death knight" requires at least 3 of 4 words to match rather than returning anything that mentions just one.
+
+- BM25 (Best Match 25) is the ranking algorithm Elasticsearch uses by default. It scores documents based on term frequency (how often the word appears) and inverse document frequency (how rare the word is across all documents). Rare terms that appear frequently in a document score higher than common terms. **Example:** "Frostmourne" appearing 10 times in a page scores higher than "the" appearing 100 times.
+
+**Next Steps:**
+I want to add hybrid search (vectors + RRF) and knowledge graph. And perhaps learn GraphRAG and implement that, too. 
+
 **Test Plan:**
 
 ```bash
