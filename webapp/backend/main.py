@@ -134,12 +134,13 @@ async def chat(req: ChatRequest):
     messages = [{"role": m.role, "content": m.content} for m in req.messages]
 
     def stream():
-        full_text = ""
-        yielded_up_to = 0
-        DELIMITER = "[SECTIONS]"
-        HOLD_BACK = len(DELIMITER)
+        try:
+            full_text = ""
+            yielded_up_to = 0
+            DELIMITER = "[SECTIONS]"
+            HOLD_BACK = len(DELIMITER)
 
-        with claude.messages.stream(
+            with claude.messages.stream(
             model="claude-haiku-4-5",
             max_tokens=1500,
             system=system_prompt,
@@ -167,14 +168,18 @@ async def chat(req: ChatRequest):
                 if remaining:
                     yield remaining
 
-        if "[SECTIONS]" in full_text:
-            sections_raw = full_text.split("[SECTIONS]", 1)[1].strip()
-            if sections_raw.startswith("```"):
-                sections_raw = sections_raw.split("\n", 1)[-1].rsplit("```", 1)[0].strip()
-            try:
-                sections = json.loads(sections_raw)
-            except Exception:
-                sections = []
-            yield f"\n[SECTIONS_JSON]{json.dumps(sections)}"
+            if "[SECTIONS]" in full_text:
+                sections_raw = full_text.split("[SECTIONS]", 1)[1].strip()
+                if sections_raw.startswith("```"):
+                    sections_raw = sections_raw.split("\n", 1)[-1].rsplit("```", 1)[0].strip()
+                try:
+                    sections = json.loads(sections_raw)
+                except Exception:
+                    sections = []
+                yield f"\n[SECTIONS_JSON]{json.dumps(sections)}"
+
+        except Exception as e:
+            log.error("Stream error: %s", e)
+            yield f"Error: {str(e)}\n[SECTIONS_JSON][]"
 
     return StreamingResponse(stream(), media_type="text/plain")
