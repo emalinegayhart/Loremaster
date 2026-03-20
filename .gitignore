@@ -1,0 +1,13 @@
+.env
+data/
+go-scraper/checkpoint.json
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+webapp/frontend/node_modules/
+webapp/frontend/dist/
+*.log
+nohup.out
+.DS_Store
