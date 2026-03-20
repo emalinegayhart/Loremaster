@@ -35,3 +35,6 @@ Loremaster is a RAG (Retrieval-Augmented Generation) chat app built on top of 23
  ```
 
  Open [http://localhost:5173](http://localhost:5173)
+
+ **Call for Artwork**
+ If you are an artist and would like to design 3 custom emojis for this app to replace the uggo IOS defaults I'm using, [please lmk!](https://twitter.com/emzraline)
