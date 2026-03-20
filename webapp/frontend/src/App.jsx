@@ -95,7 +95,7 @@ const RESOURCES = [
 function ResourceSidebar() {
   return (
     <nav className="resource-sidebar">
-      <div className="sidebar-title">Resources</div>
+      <div className="sidebar-title">Other Resources</div>
       {RESOURCES.map((r) => (
         <a
           key={r.name}
