@@ -80,6 +80,38 @@ function Message({ message }) {
   );
 }
 
+const RESOURCES = [
+  { name: "Raidbots",      url: "https://www.raidbots.com/simbot",    desc: "Simulate your character's DPS and gear upgrades" },
+  { name: "Icy Veins",     url: "https://www.icy-veins.com/",         desc: "Class guides and raid strategies" },
+  { name: "Wowhead",       url: "https://www.wowhead.com/",           desc: "Item database, quests, and guides" },
+  { name: "Raider.io",     url: "https://raider.io/",                 desc: "Mythic+ rankings and character scores" },
+  { name: "Warcraft Logs", url: "https://www.warcraftlogs.com/",      desc: "Raid and dungeon performance analysis" },
+  { name: "Bloodmallet",   url: "https://bloodmallet.com/",           desc: "Trinket and item comparisons" },
+  { name: "Keystone.guru", url: "https://keystone.guru/",             desc: "Plan and share M+ dungeon routes" },
+  { name: "CurseForge",    url: "https://www.curseforge.com/",        desc: "Browse and install WoW addons" },
+  { name: "Reddit",        url: "https://www.reddit.com/r/wow/",      desc: "WoW community discussions on r/wow" },
+];
+
+function ResourceSidebar() {
+  return (
+    <nav className="resource-sidebar">
+      <div className="sidebar-title">Resources</div>
+      {RESOURCES.map((r) => (
+        <a
+          key={r.name}
+          href={r.url}
+          target="_blank"
+          rel="noreferrer"
+          className="sidebar-btn"
+          data-tooltip={r.desc}
+        >
+          {r.name}
+        </a>
+      ))}
+    </nav>
+  );
+}
+
 function CoffeeModal() {
   const [visible, setVisible] = useState(false);
 
@@ -206,6 +238,8 @@ export default function App() {
   const isEmpty = messages.length === 0;
 
   return (
+    <div className="layout">
+    <ResourceSidebar />
     <div className="app">
       <header className="header" onClick={() => { setMessages([]); setInput(""); }} style={{ cursor: "pointer" }}>
         <h1>Loremaster</h1>
@@ -255,6 +289,7 @@ export default function App() {
           {loading ? "..." : "Send"}
         </button>
       </footer>
+    </div>
     </div>
   );
 }
