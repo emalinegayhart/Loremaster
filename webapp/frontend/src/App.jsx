@@ -80,6 +80,26 @@ function Message({ message }) {
   );
 }
 
+function CoffeeModal() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), 10000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <div className="coffee-modal">
+      <button className="coffee-close" onClick={() => setVisible(false)}>✕</button>
+      <a href="https://buymeacoffee.com/emzra" target="_blank" rel="noreferrer">
+        ☕ Buy the creator a coffee!
+      </a>
+    </div>
+  );
+}
+
 export default function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -214,6 +234,8 @@ export default function App() {
           </div>
         )}
       </main>
+
+      <CoffeeModal />
 
       <footer className="input-area">
         <textarea
