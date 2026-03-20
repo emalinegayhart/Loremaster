@@ -141,32 +141,32 @@ async def chat(req: ChatRequest):
             HOLD_BACK = len(DELIMITER)
 
             with claude.messages.stream(
-            model="claude-haiku-4-5",
-            max_tokens=1500,
-            system=system_prompt,
-            messages=messages,
-        ) as s:
-            for text in s.text_stream:
-                full_text += text
+                model="claude-haiku-4-5",
+                max_tokens=1500,
+                system=system_prompt,
+                messages=messages,
+            ) as s:
+                for text in s.text_stream:
+                    full_text += text
 
-                if DELIMITER in full_text:
-                    safe = full_text.split(DELIMITER)[0]
-                    to_yield = safe[yielded_up_to:]
-                    if to_yield:
-                        yield to_yield
-                    yielded_up_to = len(safe)
-                    break
-                else:
-                    safe_end = max(yielded_up_to, len(full_text) - HOLD_BACK)
-                    to_yield = full_text[yielded_up_to:safe_end]
-                    if to_yield:
-                        yield to_yield
-                        yielded_up_to = safe_end
+                    if DELIMITER in full_text:
+                        safe = full_text.split(DELIMITER)[0]
+                        to_yield = safe[yielded_up_to:]
+                        if to_yield:
+                            yield to_yield
+                        yielded_up_to = len(safe)
+                        break
+                    else:
+                        safe_end = max(yielded_up_to, len(full_text) - HOLD_BACK)
+                        to_yield = full_text[yielded_up_to:safe_end]
+                        if to_yield:
+                            yield to_yield
+                            yielded_up_to = safe_end
 
-            if DELIMITER not in full_text:
-                remaining = full_text[yielded_up_to:]
-                if remaining:
-                    yield remaining
+                if DELIMITER not in full_text:
+                    remaining = full_text[yielded_up_to:]
+                    if remaining:
+                        yield remaining
 
             if "[SECTIONS]" in full_text:
                 sections_raw = full_text.split("[SECTIONS]", 1)[1].strip()
