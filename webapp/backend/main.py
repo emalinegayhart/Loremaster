@@ -57,6 +57,7 @@ def search_wowpedia(query: str, limit: int = 5) -> list[dict]:
                     "fields": ["title^4", "summary^2", "content"],
                     "type": "best_fields",
                     "fuzziness": "AUTO",
+                    "minimum_should_match": "75%",
                 }
             },
             "highlight": {
