@@ -1,0 +1,9 @@
+# Wikitext parsing
+mwparserfromhell>=0.6.6
+
+# Elasticsearch indexing
+elasticsearch>=8.12.0
+
+# Utilities
+tqdm>=4.66.0
+loguru>=0.7.2
