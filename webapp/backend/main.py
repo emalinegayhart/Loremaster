@@ -55,6 +55,7 @@ class ChatRequest(BaseModel):
 
 
 ELSER_READY = False  # Flip to True once reindex_elser.py has completed
+# TODO: once ELSER_READY is True and confirmed working, remove this flag and build_retrievers entirely and inline the three retrievers directly into search_wowpedia
 
 
 def build_retrievers(query: str) -> list:
