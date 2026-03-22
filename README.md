@@ -29,7 +29,7 @@ Loremaster is a RAG (Retrieval-Augmented Generation) chat app built on top of 23
 
 - BM25 (Best Match 25) is the ranking algorithm Elasticsearch uses by default. It scores documents based on term frequency (how often the word appears) and inverse document frequency (how rare the word is across all documents). Rare terms that appear frequently in a document score higher than common terms. **Example:** "Frostmourne" appearing 10 times in a page scores higher than "the" appearing 100 times.
 
-Limitations and Next Steps:
+Limitations:
 
 The current keyword search retrieves individual articles well but has no awareness of relationships between them. Quest chains, NPC storylines, and faction arcs that span multiple pages lose their continuity. Planned improvements to address this:
 
