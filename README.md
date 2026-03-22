@@ -35,7 +35,7 @@ The current keyword search retrieves individual articles well but has no awarene
 
 - Adding dense vector search alongside the existing keyword search using RRF (Reciprocal Rank Fusion) to combine rankings, improving retrieval on conceptual and semantic queries.
 - Building a knowledge graph to model relationships between entities (quests, NPCs, zones, factions) so the system can traverse connections rather than retrieve isolated snippets.
-- Implementing GraphRAG to enable graph-aware retrieval that understands narrative continuity, enabling accurate responses to questions like "walk me through the Wrathgate quest chain".
+- Implementing GraphRAG to enable graph-aware retrieval that understands narrative continuity, enabling accurate responses to questions like "walk me through the Wrathgate quest chain" (may seem a little overkill but i wanted to learn this new tech anyways :D!).
 
 **Test Plan:**
 
