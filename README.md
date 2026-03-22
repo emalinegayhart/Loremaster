@@ -27,6 +27,10 @@ Loremaster is a RAG (Retrieval-Augmented Generation) chat app built on top of 23
 
 - minimum_should_match was removed after testing showed that cross_fields combined with BM25 and field weights handles ranking well enough on its own. Adding a threshold introduced unnecessary cutoffs that penalised conversational queries containing filler words.
 
+- RRF (Reciprocal Rank Fusion) combines results from multiple retrievers by rank position rather than raw score. Loremaster runs three retrievers in parallel — a cross_fields BM25 query for conversational queries, a best_fields BM25 query with fuzziness for typo tolerance, and an ELSER sparse vector query for semantic understanding — and merges them using RRF so that articles ranking highly across multiple retrievers surface at the top.
+
+- ELSER (Elastic Learned Sparse EncodeR) is a machine learning model trained by Elastic that generates sparse vector representations of text. Unlike dense embeddings, ELSER produces weighted keyword expansions that capture semantic meaning without requiring a fixed-size vector space. This allows queries like "lore about the undead king" to match articles about Arthas even without exact keyword overlap.
+
 - BM25 (Best Match 25) is the ranking algorithm Elasticsearch uses by default. It scores documents based on term frequency (how often the word appears) and inverse document frequency (how rare the word is across all documents). Rare terms that appear frequently in a document score higher than common terms. **Example:** "Frostmourne" appearing 10 times in a page scores higher than "the" appearing 100 times.
 
 Limitations:
