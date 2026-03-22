@@ -11,3 +11,4 @@ webapp/frontend/dist/
 *.log
 nohup.out
 .DS_Store
+*.md
