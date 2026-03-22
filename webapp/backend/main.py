@@ -54,15 +54,59 @@ class ChatRequest(BaseModel):
     messages: list[Message]
 
 
+ELSER_READY = False  # Flip to True once reindex_elser.py has completed
+
+
+def build_retrievers(query: str) -> list:
+    retrievers = [
+        {
+            "standard": {
+                "query": {
+                    "multi_match": {
+                        "query": query,
+                        "fields": ["title^4", "summary^2", "content"],
+                        "type": "cross_fields",
+                    }
+                }
+            }
+        },
+        {
+            "standard": {
+                "query": {
+                    "multi_match": {
+                        "query": query,
+                        "fields": ["title^4", "summary^2", "content"],
+                        "type": "best_fields",
+                        "fuzziness": "AUTO",
+                    }
+                }
+            }
+        },
+    ]
+    if ELSER_READY:
+        retrievers.append({
+            "standard": {
+                "query": {
+                    "sparse_vector": {
+                        "field": "content_sparse",
+                        "inference_id": ".elser_model_2_linux-x86_64",
+                        "query": query,
+                    }
+                }
+            }
+        })
+    return retrievers
+
+
 def search_wowpedia(query: str, limit: int = 5) -> list[dict]:
     result = es.search(
         index=ES_INDEX,
         body={
-            "query": {
-                "multi_match": {
-                    "query": query,
-                    "fields": ["title^4", "summary^2", "content"],
-                    "type": "cross_fields",
+            "retriever": {
+                "rrf": {
+                    "retrievers": build_retrievers(query),
+                    "rank_window_size": 50,
+                    "rank_constant": 20,
                 }
             },
             "highlight": {
