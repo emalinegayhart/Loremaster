@@ -95,7 +95,7 @@ def search_wowpedia(query: str, limit: int = 5) -> list[dict]:
 
 def build_system_prompt(context_pages: list[dict]) -> str:
     if not context_pages:
-        context = "No specific pages found. Answer from general WoW knowledge."
+        context = "No specific pages found. Honestly tell the user you lack reliable information on this topic and direct them to Wowhead (https://www.wowhead.com) for accurate data."
     else:
         context = "\n\n---\n\n".join(
             f"**{p['title']}**\nSource: {p['url']}\n{p['snippet']}"
