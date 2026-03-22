@@ -33,7 +33,7 @@ Limitations:
 
 The current keyword search retrieves individual articles well [but has no awareness of relationships between them.](https://github.com/emalinegayhart/Loremaster/issues/1) Quest chains, NPC storylines, and faction arcs that span multiple pages lose their continuity. Planned improvements to address this:
 
-- Adding dense vector search alongside the existing keyword search using RRF (Reciprocal Rank Fusion) to combine rankings, improving retrieval on conceptual and semantic queries.
+~~- Adding ELSER sparse vector search alongside the existing keyword search using RRF (Reciprocal Rank Fusion) to combine rankings, improving retrieval on conceptual and semantic queries.~~ (done!)
 - Building a knowledge graph to model relationships between entities (quests, NPCs, zones, factions) so the system can traverse connections rather than retrieve isolated snippets.
 - Implementing GraphRAG to enable graph-aware retrieval that understands narrative continuity, enabling accurate responses to questions like "walk me through the Wrathgate quest chain" (may seem a little overkill but i wanted to learn this new tech anyways :D!).
 
