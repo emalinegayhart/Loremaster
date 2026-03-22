@@ -23,9 +23,9 @@ Loremaster is a RAG (Retrieval-Augmented Generation) chat app built on top of 23
 
 - English analyzer applies stemming and stop word removal at index and query time, which means users don't need to type exact forms of words to get relevant results. **Example:** "Running" matches "run", "the sword" strips "the".
 
-- best_fields multi-match type takes the highest scoring field rather than summing all fields. This prevents a document from ranking highly just because it mentions the search term across many fields.
+- cross_fields multi-match type treats all query terms as belonging to one combined field across title, summary, and content. This allows the title boost to properly dominate when an article title closely matches the query, rather than being outscored by articles that match more terms across their content and summary fields.
 
-- minimum_should_match (75%) requires at least 75% of search terms to match. This prevents broad multi-word queries from returning loosely related results. **Example:** "Arthas Lich King death knight" requires at least 3 of 4 words to match rather than returning anything that mentions just one.
+- minimum_should_match was removed after testing showed that cross_fields combined with BM25 and field weights handles ranking well enough on its own. Adding a threshold introduced unnecessary cutoffs that penalised conversational queries containing filler words.
 
 - BM25 (Best Match 25) is the ranking algorithm Elasticsearch uses by default. It scores documents based on term frequency (how often the word appears) and inverse document frequency (how rare the word is across all documents). Rare terms that appear frequently in a document score higher than common terms. **Example:** "Frostmourne" appearing 10 times in a page scores higher than "the" appearing 100 times.
 
