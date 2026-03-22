@@ -9,10 +9,13 @@ import psycopg2
 import psycopg2.extras
 import anthropic
 from elasticsearch import Elasticsearch
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, JSONResponse
 from pydantic import BaseModel
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 
 from config import (
     NEON_CONNECTION_STRING,
@@ -28,7 +31,11 @@ log = logging.getLogger(__name__)
 es     = Elasticsearch(ES_ENDPOINT, api_key=ES_API_KEY)
 claude = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
+limiter = Limiter(key_func=get_remote_address)
+
 app = FastAPI(title="Loremaster API")
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 app.add_middleware(
     CORSMiddleware,
@@ -121,7 +128,8 @@ def health():
 
 
 @app.post("/api/chat")
-async def chat(req: ChatRequest):
+@limiter.limit("10/minute")
+async def chat(request: Request, req: ChatRequest):
     user_message = next(
         (m.content for m in reversed(req.messages) if m.role == "user"),
         ""
