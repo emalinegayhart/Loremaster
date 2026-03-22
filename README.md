@@ -29,8 +29,12 @@ Loremaster is a RAG (Retrieval-Augmented Generation) chat app built on top of 23
 
 - BM25 (Best Match 25) is the ranking algorithm Elasticsearch uses by default. It scores documents based on term frequency (how often the word appears) and inverse document frequency (how rare the word is across all documents). Rare terms that appear frequently in a document score higher than common terms. **Example:** "Frostmourne" appearing 10 times in a page scores higher than "the" appearing 100 times.
 
-**Next Steps:**
-I want to add hybrid search (vectors + RRF) and knowledge graph. And perhaps learn GraphRAG and implement that, too. 
+**Limitations and Next Steps:**
+The current keyword search retrieves individual articles well but has no awareness of relationships between them — quest chains, NPC storylines, and faction arcs that span multiple pages lose their continuity. Planned improvements to address this:
+
+- **Hybrid search (dense vectors + BM25 + RRF)** — semantic similarity alongside keyword matching for better retrieval on conceptual queries
+- **Knowledge graph** — model relationships between entities (quests, NPCs, zones, factions) so the system can traverse connections rather than retrieve isolated snippets
+- **GraphRAG** — graph-aware retrieval that understands narrative continuity, enabling accurate responses to questions like "walk me through the Wrathgate quest chain"
 
 **Test Plan:**
 
