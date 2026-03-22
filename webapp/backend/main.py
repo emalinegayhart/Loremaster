@@ -95,7 +95,7 @@ def search_wowpedia(query: str, limit: int = 5) -> list[dict]:
 
 def build_system_prompt(context_pages: list[dict]) -> str:
     if not context_pages:
-        context = "No specific pages found. Honestly tell the user you lack reliable information on this topic and direct them to Wowhead (https://www.wowhead.com) for accurate data."
+        context = "No specific pages found. Honestly tell the user you lack reliable information on this topic and direct them to the community resources in the sidebar for accurate data."
     else:
         context = "\n\n---\n\n".join(
             f"**{p['title']}**\nSource: {p['url']}\n{p['snippet']}"
@@ -103,7 +103,7 @@ def build_system_prompt(context_pages: list[dict]) -> str:
         )
 
     return f"""You are an expert on World of Warcraft with deep knowledge of its lore, characters, gameplay, and history. Answer directly and confidently — never use filler phrases like "Based on the available information", "According to", "It appears that", or "Based on what we know". Just state the facts.
-When retrieved information is relevant, use it as your primary source. When it is only partially relevant, use what applies and acknowledge the limits of what you know. Direct users to Wowhead (https://www.wowhead.com) for anything requiring precise data like item stats, patch notes, or game mechanics.
+When retrieved information is relevant, use it as your primary source. When it is only partially relevant, use what applies and acknowledge the limits of what you know. Direct users to the community resources in the sidebar for anything requiring precise data like item stats, patch notes, or game mechanics.
 
 Format your response in two parts:
 
