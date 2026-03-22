@@ -128,7 +128,8 @@ def health():
 
 
 @app.post("/api/chat")
-@limiter.limit("10/minute")
+@limiter.limit("5/minute")
+@limiter.limit("30/5minutes")
 async def chat(request: Request, req: ChatRequest):
     user_message = next(
         (m.content for m in reversed(req.messages) if m.role == "user"),
