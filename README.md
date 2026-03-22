@@ -23,10 +23,6 @@ Loremaster is a RAG (Retrieval-Augmented Generation) chat app built on top of 23
 
 - English analyzer applies stemming and stop word removal at index and query time, which means users don't need to type exact forms of words to get relevant results. **Example:** "Running" matches "run", "the sword" strips "the".
 
-- cross_fields multi-match type treats all query terms as belonging to one combined field across title, summary, and content. This allows the title boost to properly dominate when an article title closely matches the query, rather than being outscored by articles that match more terms across their content and summary fields.
-
-- minimum_should_match was removed after testing showed that cross_fields combined with BM25 and field weights handles ranking well enough on its own. Adding a threshold introduced unnecessary cutoffs that penalised conversational queries containing filler words.
-
 - RRF (Reciprocal Rank Fusion) combines results from multiple retrievers by rank position rather than raw score. Loremaster runs three retrievers in parallel — a cross_fields BM25 query for conversational queries, a best_fields BM25 query with fuzziness for typo tolerance, and an ELSER sparse vector query for semantic understanding — and merges them using RRF so that articles ranking highly across multiple retrievers surface at the top.
 
 - ELSER (Elastic Learned Sparse EncodeR) is a machine learning model trained by Elastic that generates sparse vector representations of text. Unlike dense embeddings, ELSER produces weighted keyword expansions that capture semantic meaning without requiring a fixed-size vector space. This allows queries like "lore about the undead king" to match articles about Arthas even without exact keyword overlap.
