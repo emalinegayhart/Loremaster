@@ -114,7 +114,7 @@ def search_wowpedia(query: str, limit: int = 5) -> list[dict]:
                 "fields": {
                     "content": {
                         "fragment_size": 500,
-                        "number_of_fragments": 1,
+                        "number_of_fragments": 2,
                     }
                 }
             },
@@ -125,9 +125,10 @@ def search_wowpedia(query: str, limit: int = 5) -> list[dict]:
 
     pages = []
     for hit in result["hits"]["hits"]:
-        src = hit["_source"]
-        highlight = hit.get("highlight", {}).get("content", [])
-        snippet = highlight[0] if highlight else src.get("summary", "")
+        src       = hit["_source"]
+        summary   = src.get("summary", "")
+        highlight = " ".join(hit.get("highlight", {}).get("content", []))
+        snippet   = summary + (" " + highlight if highlight and highlight not in summary else "")
         pages.append({
             "title":   src.get("title", ""),
             "url":     src.get("url", ""),
