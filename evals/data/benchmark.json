@@ -1,0 +1,902 @@
+[
+  {
+    "query": "Who is Arthas?",
+    "expected": "Arthas Menethil",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "What is Frostmourne?",
+    "expected": "Frostmourne",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "What happened to Sylvanas?",
+    "expected": "Sylvanas Windrunner",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Who is Illidan Stormrage?",
+    "expected": "Illidan Stormrage",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Tell me about the Wrathgate event",
+    "expected": "Wrathgate",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "how do i do this quest A Call to Ardenweald Kyrian",
+    "expected": "A Call to Ardenweald (Kyrian)",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "what is the quest Lament of the Highborne",
+    "expected": "Lament of the Highborne",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "What is Thunderfury Blessed Blade of the Windseeker",
+    "expected": "Thunderfury",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "What drops from Onyxia",
+    "expected": "Onyxia",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "What is twinking in wow",
+    "expected": "Sunscale Helmet",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "What is the difference between horde and alliance",
+    "expected": "Alliance",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "Where can I find Cataloger Coralie and what is she doing?",
+    "expected": "Cataloger Coralie",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, who's that goblin hunter guy with the crawler pet that was fighting in Ashenvale during the War of the Thorns?",
+    "expected": "Chikkers",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Who are those dwarf NPCs I keep running into in Ulduar, and what's their deal?",
+    "expected": "Expedition Defender",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm stuck on this quest called Bits and Pieces. Where am I supposed to go to meet up with Brann?",
+    "expected": "Bits and Pieces",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "I'm reading through the History of Warcraft and I want to know more about what happened during the Horde's campaign in The Frozen Throne - is there a specific book about that?",
+    "expected": "Old Hatreds - The Colonization of Kalimdor",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Where can I farm Titanium Links of Lore? I need a few more for my enchanting.",
+    "expected": "Titanium Links of Lore",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "I'm about to do some dungeons tonight and I want to make sure I'm prepared. What's a good elixir I can use to boost my health before I go in?",
+    "expected": "Elixir of Fortitude",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Wait, so Azshara used to be a night elf queen? How did she end up becoming the queen of the naga?",
+    "expected": "Queen Azshara",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Where can I find a gryphon roost in Loch Modan?",
+    "expected": "Thelsamar",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I picked up this Ancient Crypt Key but I'm not sure what to do with it. Who do I need to give it to?",
+    "expected": "Ancient Crypt Key (quest)",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "What was Windshear Crag like before it changed?",
+    "expected": "Windshear Crag",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, is the Cinder Kitten a good pet to gift to my guildmates, and what does it look like?",
+    "expected": "Cinder Kitten",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm reading about Magna Scavell's apprentices and I'm confused about Jonas. What was his deal with Aegwynn and why was he against her becoming Guardian?",
+    "expected": "Jonas",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "I'm trying to get the Burial Shawl for my collection - do you know which bosses in Scholomance drop it?",
+    "expected": "Burial Shawl",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "So I'm doing this quest for Aggra and I need to go to the Kosh'harg - where exactly is that and how do I get there?",
+    "expected": "The Kosh'harg",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "What's the lore behind the Arms Warrior artifact weapon in Legion? Like, where did it come from and how did we get it?",
+    "expected": "Strom'kar, the Warbreaker",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "What happened to Shaka when Shattrath City fell to the orcs?",
+    "expected": "Shaka",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "I'm stuck on this quest where Thoralius the Wise is asking me to do something in the spirit world. What am I actually supposed to be looking for in Nifflevar?",
+    "expected": "Anguish of Nifflevar",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "What happened to Maiev and Illidan in the Chamber of the Eye during the Tomb of Sargeras?",
+    "expected": "Chamber of the Eye",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm trying to find the stable master in Westguard Keep. Do you know who runs it?",
+    "expected": "Chelsea Reese",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "How do I complete the Backdoor Dealings quest for the Horde?",
+    "expected": "Backdoor Dealings (Horde)",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Wait, who was Aedelyn Blackmoore? Is he related to that other Blackmoore character I keep hearing about?",
+    "expected": "Aedelyn Blackmoore",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm looking at my map and I see these hills called Maisara Hills. Where exactly are they and what's there to do?",
+    "expected": "Maisara Hills",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I keep seeing this weapon called Stormhammer in old Warcraft lore and in Hearthstone. What exactly is it and where does it show up in the games?",
+    "expected": "Stormhammer",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "I'm trying to unlock the Three Moons area but I keep hearing about this Key of the Three Moons. What exactly is it and how do I get it?",
+    "expected": "Key of the Three Moons",
+    "category": "lore",
+    "type": "conversational"
+  },
+  {
+    "query": "Wait, who is Thalen Songweaver and what happened with Theramore that they keep mentioning?",
+    "expected": "Thalen Songweaver",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "How do I complete the Securing the Way quest and get to the Fel Hammer?",
+    "expected": "Securing the Way",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "I'm working on opening the Gates of Ahn'Qiraj and I picked up the Green Scepter Shard quest line. What quest comes up next after this?",
+    "expected": "The Nightmare's Corruption",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, what reward do you get for completing that Saving Stellagosa quest?",
+    "expected": "Young Drake's Impulse",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "What am I supposed to do when I meet The Countess in that quest? Do I just talk to her or is there something specific I need to do?",
+    "expected": "A Meal and A Deal",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I just picked up this quest called Clans of the Plains. Where am I supposed to go to turn it in or get more information about it?",
+    "expected": "Clans of the Plains",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm doing this quest called Making the Connection - where am I supposed to find all those magical relics they want me to look for?",
+    "expected": "Making the Connection",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I just finished up the Talanji's Expedition quest line. Where do I go to pick up my reward?",
+    "expected": "Supplies from Talanji's Expedition",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I just got this Subjugator Devo item drop - what exactly is this and should I bother keeping it?",
+    "expected": "Subjugator Devo",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "How do I get the Yoke Slasher weapon? Is it a quest reward or a drop?",
+    "expected": "Yoke Slasher",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm stuck on one of these quests in Fire Camp Bataar and there's a wolf blocking my way. Do you know what that wolf's name is?",
+    "expected": "Nero",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "How do I complete the Cataloging the Ohn'ahran Plains achievement in Thunderspine Thicket?",
+    "expected": "Cataloging the Ohn'ahran Plains (Thunderspine Thicket)",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "I'm stuck on the Missing Diplomat quest chain - what's the seventh part about and what do I need to do?",
+    "expected": "The Missing Diplomat (7)",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "I just finished The Fall of Ga'trul quest and got this Peacebreaker's Satin Hood - is this actually a good reward or should I vendor it?",
+    "expected": "Peacebreaker's Satin Hood",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "Is there anywhere in the Eastern Plaguelands that hasn't been completely overrun by the Scourge?",
+    "expected": "Tyr's Hand",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "Where can I farm Crawler Mucus, and which crabs should I be killing for it?",
+    "expected": "Crawler Mucus",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm doing quests in Ashenvale and I keep seeing this orc NPC named Locke Okarr around Splintertree Post. What quests does he have for me?",
+    "expected": "Locke Okarr",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "I just got to Uldum and there's this crazy assault happening - what's going on with all these monsters attacking Ramkahen?",
+    "expected": "Assault in Uldum",
+    "category": "quest",
+    "type": "conversational"
+  },
+  {
+    "query": "I just got some Felbane Bracers and I'm trying to figure out what stats they'll give me. Do they come with set bonuses or is it random what I get on them?",
+    "expected": "Felbane Bracers",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I got this Expeditious Staff from a Challenger's Strongbox - is that a normal drop from there or did I get lucky?",
+    "expected": "Expeditious Staff",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "How do I unlock the Winterborn Staff appearance for my transmog?",
+    "expected": "Winterborn Staff",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Where do I get the Greathelm of Phantasmic Reality?",
+    "expected": "Greathelm of Phantasmic Reality",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm leveling through Pandaria and keep seeing people hanging out in this zone called Valley of the Sword. What's that place all about?",
+    "expected": "Valley of the Sword",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, where do I get that Helm of the Faceless? Is it from a raid or something?",
+    "expected": "Helm of the Faceless",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Where can I farm this Helm of the Broken Ram? Is it a dungeon drop or can I just kill regular mobs?",
+    "expected": "Helm of the Broken Ram",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "What kind of random stats can you get on the Hyperion Helm?",
+    "expected": "Hyperion Helm",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Where can I find the Black Metal Shortsword? I've been looking everywhere for it.",
+    "expected": "Black Metal Shortsword",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I just got this Hiri'watha Helm as a drop. Is this a rare item or does it come from a specific boss?",
+    "expected": "Hiri'watha Helm",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Where do I get the Master Summoner's Staff and who drops it?",
+    "expected": "Master Summoner's Staff",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "How do I craft the Crystalfire Spellstaff and what profession do I need?",
+    "expected": "Crystalfire Spellstaff",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, where do I get that Surplus Bastard Sword? I saw someone using it and it looked pretty cool.",
+    "expected": "Surplus Bastard Sword",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "What staff did you get as a reward from The Arena of Annihilation? I'm trying to figure out if it's worth doing that quest.",
+    "expected": "Scar-Shell's Scintillating Staff",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, how do I get that High Warlord's Dragonhide Helm? Is it still available somewhere or is it gone forever?",
+    "expected": "High Warlord's Dragonhide Helm",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Where can I farm the Deepwild Hunting Helm? I've been looking for one and heard it drops from pandarian champions.",
+    "expected": "Deepwild Hunting Helm",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "What exactly is Vision Dust and what is it used for in the game?",
+    "expected": "Vision Dust",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Where can I get that cool spiritfire greathelm I saw someone wearing the other day?",
+    "expected": "Aladya's Spiritfire Greathelm",
+    "category": "item",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm thinking about rolling a new character. Can Pandaren be any class I want, or are there restrictions on what they can play?",
+    "expected": "Pandaren (playable)",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "What does my pet's Chaos Nova ability do in pet battles?",
+    "expected": "Chaos Nova (pet battle ability)",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "I just got this Death Coil ability, but I'm confused about what it actually does. Is it something I should be using offensively or defensively?",
+    "expected": "Death Coil",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I've been hearing about this mechanical wolf in Azsuna that's really hard to find. How do I actually locate it?",
+    "expected": "Rush",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm running Grim Batol for the first time and I keep seeing these Trogg Dwellers around General Umbriss. Are they part of the boss fight or can I just ignore them?",
+    "expected": "Trogg Dweller",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "I have the old Knight-Captain's Silk Raiment from years ago - can I still use it with the new PvP gear and get the set bonus?",
+    "expected": "Knight-Captain's Silk Raiment",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "I keep seeing scorpions in World of Warcraft - are they found on both Azeroth and Draenor, or just one of them?",
+    "expected": "Scorpion",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "Who is Matthien Radiantgaze and what does he do in World of Warcraft?",
+    "expected": "Matthien Radiantgaze",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "What ability does the Doomguard use for single target damage?",
+    "expected": "Doom Bolt",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "How do I get the Decaying Soul Satchel runecarving power?",
+    "expected": "Decaying Soul Satchel",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "How do I complete the Bloodied Skies objective? I keep seeing these Krik'thik Swarmers but I'm not sure what I'm supposed to do with them.",
+    "expected": "Bloodied Skies",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm stuck on this quest called Flash! Aaaaaahhhh! - how am I supposed to destroy those Skyfire Gyrocopters?",
+    "expected": "Flash! Aaaaaahhhh!",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm leveling a Blood death knight and just hit 45. What does the Voracious talent do, and is it worth picking up?",
+    "expected": "Voracious",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "I'm trying to find the Amani Catacombs for a quest, but I'm not sure where it is. Can you tell me what it is and where I can find it?",
+    "expected": "Amani Catacombs",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "I'm working on getting my guild into Temple of Ahn'Qiraj. How hard is C'Thun compared to other bosses we might face?",
+    "expected": "C'Thun (tactics)",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I just looted this weapon called Age-Worn Shortblade. Is this a rare drop or can I get it anywhere?",
+    "expected": "Age-Worn Shortblade",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "Is Primordial Wave something I can use on my shaman no matter which spec I play, or is it only for certain builds?",
+    "expected": "Primordial Wave",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "How do I teach my Voidwalker the second rank of Sacrifice?",
+    "expected": "Grimoire of Sacrifice (Rank 2)",
+    "category": "gameplay",
+    "type": "conversational"
+  },
+  {
+    "query": "At what level do warlocks learn Glyph of Siphon Life?",
+    "expected": "Glyph of Siphon Life",
+    "category": "long_tail",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm running Island Expeditions and keep seeing this boss called Lord Kamet. What exactly is he and where do I find him?",
+    "expected": "Lord Kamet",
+    "category": "long_tail",
+    "type": "conversational"
+  },
+  {
+    "query": "Where do I get Sarltooth's Talon and what mob drops it?",
+    "expected": "Sarltooth's Talon",
+    "category": "long_tail",
+    "type": "conversational"
+  },
+  {
+    "query": "I'm stuck on the By the Book quest and keep running into these ooze enemies. What exactly are these Sanguine Mass things and where do I find them?",
+    "expected": "Sanguine Mass",
+    "category": "long_tail",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm leveling up my Engineering skill in Pandaria - do you know how to make Agile Retinal Armor and where I can learn the recipe?",
+    "expected": "Agile Retinal Armor",
+    "category": "long_tail",
+    "type": "conversational"
+  },
+  {
+    "query": "How do I unlock the Bracers of the Honored Valarjar appearance for my transmog collection?",
+    "expected": "Bracers of the Honored Valarjar",
+    "category": "long_tail",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, where can I get that Shadowstalking Jerkin? Who sells it?",
+    "expected": "Shadowstalking Jerkin",
+    "category": "long_tail",
+    "type": "conversational"
+  },
+  {
+    "query": "Hey, I'm doing this quest and it keeps asking me to collect seaweed, but I can't figure out where to find it. Do you know where I'm supposed to pick this stuff up?",
+    "expected": "Seaweed (quest item)",
+    "category": "long_tail",
+    "type": "conversational"
+  },
+  {
+    "query": "Where can I find the Primalist Earthwardens and what are they?",
+    "expected": "Primalist Earthwarden",
+    "category": "long_tail",
+    "type": "conversational"
+  },
+  {
+    "query": "I found this weathered map in my inventory, but I'm not sure if all the quests from it are actually connected. Are they part of one big questline or are they separate?",
+    "expected": "Weathered Map quest series",
+    "category": "long_tail",
+    "type": "conversational"
+  },
+  {
+    "query": "Annie Lansing Forsaken",
+    "expected": "Annie Lansing",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Hunting grounds orcish afterlife",
+    "expected": "Hunting grounds",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "red pox disease ogres",
+    "expected": "Red pox",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Ancient Crypt Key quest",
+    "expected": "Ancient Crypt Key (quest)",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Fuzzywick worgen Winter Veil",
+    "expected": "Fuzzywick",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Unbroken Warcraft III unit",
+    "expected": "Unbroken (Warcraft III)",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "The Magic Within quest",
+    "expected": "The Magic Within",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Dragonscale Expedition Dragon Isles",
+    "expected": "Dragonscale Expedition",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Test of Lore quest Stonetalon",
+    "expected": "Test of Lore (2)",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Thorium Brotherhood faction",
+    "expected": "Thorium Brotherhood",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Kezan goblin homeland",
+    "expected": "Kezan",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Well of Eternity dungeon",
+    "expected": "Well of Eternity (instance)",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Bad Blood quest",
+    "expected": "Bad Blood",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Soot dog Lakeshire",
+    "expected": "Soot (dog)",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Black dragons lore",
+    "expected": "Black dragon",
+    "category": "lore",
+    "type": "short"
+  },
+  {
+    "query": "Shadowmoon Clan Alliance quest",
+    "expected": "The Shadowmoon Clan (Alliance)",
+    "category": "quest",
+    "type": "short"
+  },
+  {
+    "query": "Scarlet Crusade quest Brill",
+    "expected": "At War With The Scarlet Crusade (2)",
+    "category": "quest",
+    "type": "short"
+  },
+  {
+    "query": "Lieutenant Sanders WoW",
+    "expected": "Lieutenant Sanders",
+    "category": "quest",
+    "type": "short"
+  },
+  {
+    "query": "Rulf Tiragarde Sound",
+    "expected": "Rulf",
+    "category": "quest",
+    "type": "short"
+  },
+  {
+    "query": "Oakheart Cape quest reward",
+    "expected": "Oakheart Cape",
+    "category": "quest",
+    "type": "short"
+  },
+  {
+    "query": "Zurai vendor Zangarmarsh",
+    "expected": "Zurai",
+    "category": "quest",
+    "type": "short"
+  },
+  {
+    "query": "Captured Chicken quest",
+    "expected": "Captured Chicken",
+    "category": "quest",
+    "type": "short"
+  },
+  {
+    "query": "Sunseeker Channelers daily quest",
+    "expected": "WANTED: Sunseeker Channelers",
+    "category": "quest",
+    "type": "short"
+  },
+  {
+    "query": "Hippogryph Scale farming",
+    "expected": "Hippogryph Scale",
+    "category": "quest",
+    "type": "short"
+  },
+  {
+    "query": "Heart of Azmerloth quest reward",
+    "expected": "Heart of Azmerloth",
+    "category": "quest",
+    "type": "short"
+  },
+  {
+    "query": "Lodestaff Shaft drop location",
+    "expected": "Lodestaff Shaft",
+    "category": "item",
+    "type": "short"
+  },
+  {
+    "query": "Shadowhide Two-Handed Sword drop",
+    "expected": "Shadowhide Two-Handed Sword",
+    "category": "item",
+    "type": "short"
+  },
+  {
+    "query": "Sword of Honor quest reward",
+    "expected": "Sword of Honor",
+    "category": "item",
+    "type": "short"
+  },
+  {
+    "query": "Crate of Crash Helmets",
+    "expected": "Crate of Crash Helmets",
+    "category": "item",
+    "type": "short"
+  },
+  {
+    "query": "Deathblow two-handed sword",
+    "expected": "Deathblow (sword)",
+    "category": "item",
+    "type": "short"
+  },
+  {
+    "query": "Warpstaff of Arcanum",
+    "expected": "Warpstaff of Arcanum",
+    "category": "item",
+    "type": "short"
+  },
+  {
+    "query": "Cerith Spire Staff",
+    "expected": "Cerith Spire Staff",
+    "category": "item",
+    "type": "short"
+  },
+  {
+    "query": "Streamtalker Helm armor",
+    "expected": "Streamtalker Helm",
+    "category": "item",
+    "type": "short"
+  },
+  {
+    "query": "Humbert's Sword quest",
+    "expected": "Humbert's Sword (quest)",
+    "category": "item",
+    "type": "short"
+  },
+  {
+    "query": "Lei Shen Burial Trove",
+    "expected": "Lei Shen's Burial Trove",
+    "category": "item",
+    "type": "short"
+  },
+  {
+    "query": "Infusion of Light Holy paladin",
+    "expected": "Infusion of Light",
+    "category": "gameplay",
+    "type": "short"
+  },
+  {
+    "query": "Spectral gryphon mount",
+    "expected": "Spectral gryphon",
+    "category": "gameplay",
+    "type": "short"
+  },
+  {
+    "query": "Blood elf race",
+    "expected": "Blood elf",
+    "category": "gameplay",
+    "type": "short"
+  },
+  {
+    "query": "Argent Battleworg mount",
+    "expected": "Argent Battleworg",
+    "category": "gameplay",
+    "type": "short"
+  },
+  {
+    "query": "Hammer of Reckoning paladin talent",
+    "expected": "Hammer of Reckoning",
+    "category": "gameplay",
+    "type": "short"
+  },
+  {
+    "query": "Fury of 1,000 Fists pet battle",
+    "expected": "Fury of 1,000 Fists",
+    "category": "gameplay",
+    "type": "short"
+  },
+  {
+    "query": "Houndstooth Mechagon scraphound",
+    "expected": "Houndstooth",
+    "category": "gameplay",
+    "type": "short"
+  },
+  {
+    "query": "Timmo Shadestep gnome rogue",
+    "expected": "Timmo Shadestep",
+    "category": "gameplay",
+    "type": "short"
+  },
+  {
+    "query": "Veteran of the Third War talent",
+    "expected": "Veteran of the Third War",
+    "category": "gameplay",
+    "type": "short"
+  },
+  {
+    "query": "Deathwing dragon aspect lore",
+    "expected": "Deathwing",
+    "category": "gameplay",
+    "type": "short"
+  },
+  {
+    "query": "Jiro Guardian location",
+    "expected": "Jiro Guardian",
+    "category": "long_tail",
+    "type": "short"
+  },
+  {
+    "query": "Forgehand Tools location loot",
+    "expected": "Forgehand Tools",
+    "category": "long_tail",
+    "type": "short"
+  },
+  {
+    "query": "Kruwa fish vendor Dazar'alor",
+    "expected": "Kruwa",
+    "category": "long_tail",
+    "type": "short"
+  },
+  {
+    "query": "Heavy Torch quest item",
+    "expected": "Heavy Torch",
+    "category": "long_tail",
+    "type": "short"
+  },
+  {
+    "query": "Ymirjar Lord's Battlegear warrior",
+    "expected": "Ymirjar Lord's Battlegear",
+    "category": "long_tail",
+    "type": "short"
+  }
+]

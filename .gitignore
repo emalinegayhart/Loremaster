@@ -1,5 +1,7 @@
 .env
 data/
+!evals/data/
+!evals/data/benchmark.json
 go-scraper/checkpoint.json
 __pycache__/
 *.pyc
