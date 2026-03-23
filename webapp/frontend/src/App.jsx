@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useReducer, useRef, useEffect } from "react";
 import "./App.css";
 import Message from "./components/Message";
 import ResourceSidebar from "./components/ResourceSidebar";
@@ -16,10 +16,82 @@ const WOW_SUGGESTIONS = [
   "What is twinking?",
 ];
 
+const initialState = {
+  messages: [],
+  input: "",
+  loading: false,
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "SET_INPUT":
+      return { ...state, input: action.payload };
+
+    case "SEND":
+      return {
+        ...state,
+        loading: true,
+        input: "",
+        messages: [
+          ...state.messages,
+          { role: "user", content: action.payload },
+          { role: "assistant", loading: true },
+        ],
+      };
+
+    case "STREAM_START":
+      return {
+        ...state,
+        messages: state.messages.map((m, i) =>
+          i === state.messages.length - 1
+            ? { role: "assistant", content: "", sections: [], streaming: true }
+            : m
+        ),
+      };
+
+    case "STREAM_CHUNK":
+      return {
+        ...state,
+        messages: state.messages.map((m, i) =>
+          i === state.messages.length - 1
+            ? { ...m, content: action.payload }
+            : m
+        ),
+      };
+
+    case "COMPLETE":
+      return {
+        ...state,
+        loading: false,
+        messages: state.messages.map((m, i) =>
+          i === state.messages.length - 1
+            ? { role: "assistant", content: action.payload.content, sections: action.payload.sections, streaming: false }
+            : m
+        ),
+      };
+
+    case "ERROR":
+      return {
+        ...state,
+        loading: false,
+        messages: state.messages.map((m, i) =>
+          i === state.messages.length - 1
+            ? { role: "assistant", content: action.payload, sections: [], streaming: false }
+            : m
+        ),
+      };
+
+    case "RESET":
+      return initialState;
+
+    default:
+      return state;
+  }
+}
+
 export default function App() {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { messages, input, loading } = state;
   const bottomRef = useRef(null);
 
   useEffect(() => {
@@ -30,19 +102,15 @@ export default function App() {
     const userMessage = text || input.trim();
     if (!userMessage || loading) return;
 
-    setInput("");
-    setLoading(true);
-
-    const newMessages = [...messages, { role: "user", content: userMessage }];
-    setMessages(newMessages);
-
-    setMessages((prev) => [...prev, { role: "assistant", loading: true }]);
+    dispatch({ type: "SEND", payload: userMessage });
 
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newMessages }),
+        body: JSON.stringify({
+          messages: [...messages, { role: "user", content: userMessage }],
+        }),
       });
 
       const reader = res.body.getReader();
@@ -50,16 +118,7 @@ export default function App() {
       let fullText = "";
       let sections = [];
 
-      setMessages((prev) => {
-        const updated = [...prev];
-        updated[updated.length - 1] = {
-          role: "assistant",
-          content: "",
-          sections: [],
-          streaming: true,
-        };
-        return updated;
-      });
+      dispatch({ type: "STREAM_START" });
 
       while (true) {
         const { done, value } = await reader.read();
@@ -72,43 +131,20 @@ export default function App() {
           try { sections = JSON.parse(parts[1]); } catch (_) {}
         } else {
           fullText += chunk;
-          setMessages((prev) => {
-            const updated = [...prev];
-            updated[updated.length - 1] = {
-              role: "assistant",
-              content: fullText,
-              sections: [],
-              streaming: true,
-            };
-            return updated;
-          });
+          dispatch({ type: "STREAM_CHUNK", payload: fullText });
         }
       }
 
-      setMessages((prev) => {
-        const updated = [...prev];
-        updated[updated.length - 1] = {
-          role: "assistant",
-          content: cleanMarkdown(fullText),
-          sections,
-          streaming: false,
-        };
-        return updated;
+      dispatch({
+        type: "COMPLETE",
+        payload: { content: cleanMarkdown(fullText), sections },
       });
 
     } catch (err) {
-      setMessages((prev) => {
-        const updated = [...prev];
-        updated[updated.length - 1] = {
-          role: "assistant",
-          content: "Something went wrong. Is the backend running?",
-          sections: [],
-          streaming: false,
-        };
-        return updated;
+      dispatch({
+        type: "ERROR",
+        payload: "Something went wrong. Is the backend running?",
       });
-    } finally {
-      setLoading(false);
     }
   }
 
@@ -125,7 +161,7 @@ export default function App() {
     <div className="layout">
       <ResourceSidebar />
       <div className="app">
-        <header className="header" onClick={() => { setMessages([]); setInput(""); }} style={{ cursor: "pointer" }}>
+        <header className="header" onClick={() => dispatch({ type: "RESET" })} style={{ cursor: "pointer" }}>
           <h1>Loremaster</h1>
           <p>Uncover the secrets of Azeroth</p>
         </header>
@@ -159,7 +195,7 @@ export default function App() {
           <textarea
             className="input"
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => dispatch({ type: "SET_INPUT", payload: e.target.value })}
             onKeyDown={handleKeyDown}
             placeholder="Ask about WoW lore, characters, items, quests..."
             rows={1}
