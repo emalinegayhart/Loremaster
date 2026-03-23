@@ -10,6 +10,7 @@ Loremaster is a RAG (Retrieval-Augmented Generation) chat app built on top of 23
 - Data cleaning - Python, mwparserfromhell
 - Database - PostgreSQL (Neon)
 - Search - Elasticsearch (Elastic Cloud Serverless)
+- Evaluations - Jupyter Notebooks, Python
 - Backend - FastAPI, Python
 - Claude Haiku
 - Streaming - Server-Sent Events (SSE)
