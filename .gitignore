@@ -2,6 +2,7 @@
 data/
 !evals/data/
 !evals/data/benchmark.json
+!evals/results/
 go-scraper/checkpoint.json
 __pycache__/
 *.pyc
