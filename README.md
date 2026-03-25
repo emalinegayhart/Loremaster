@@ -10,6 +10,7 @@ Loremaster is a RAG (Retrieval-Augmented Generation) chat app built on top of 23
 - Data cleaning - Python, mwparserfromhell
 - Database - PostgreSQL (Neon)
 - Search - Elasticsearch (Elastic Cloud Serverless)
+- Evaluations - Jupyter Notebooks, Python
 - Backend - FastAPI, Python
 - Claude Haiku
 - Streaming - Server-Sent Events (SSE)
@@ -33,7 +34,7 @@ Limitations:
 
 The current keyword search retrieves individual articles well [but has no awareness of relationships between them.](https://github.com/emalinegayhart/Loremaster/issues/1) Quest chains, NPC storylines, and faction arcs that span multiple pages lose their continuity. Planned improvements to address this:
 
-- [x] Assess adding ELSER sparse vector search alongside the existing keyword search using RRF (Reciprocal Rank Fusion) to combine rankings, improving retrieval on conceptual and semantic queries. (eval results [here](https://github.com/emalinegayhart/Loremaster/blob/main/evals/notebooks/results.ipynb))
+- [x] Assess adding ELSER sparse vector search alongside the existing keyword search using RRF (Reciprocal Rank Fusion) to combine rankings, improving retrieval on conceptual and semantic queries. (eval results [here)](https://github.com/emalinegayhart/Loremaster/blob/main/evals/results/2026-03-23.ipynb)
 - [ ] Assess a knowledge graph to model relationships between entities (quests, NPCs, zones, factions) so the system can traverse connections rather than retrieve isolated snippets.
 - [ ] Assess implementing GraphRAG to enable graph-aware retrieval that understands narrative continuity, enabling accurate responses to questions like "walk me through the Wrathgate quest chain" (may seem a little overkill but i wanted to learn this new tech anyways :D!).
 

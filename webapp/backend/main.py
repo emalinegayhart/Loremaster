@@ -125,9 +125,10 @@ def search_wowpedia(query: str, limit: int = 5) -> list[dict]:
 
     pages = []
     for hit in result["hits"]["hits"]:
-        src = hit["_source"]
-        highlight = hit.get("highlight", {}).get("content", [])
-        snippet = highlight[0] if highlight else src.get("summary", "")
+        src       = hit["_source"]
+        summary   = src.get("summary", "")
+        highlight = " ".join(hit.get("highlight", {}).get("content", []))
+        snippet   = summary + (" " + highlight if highlight and highlight not in summary else "")
         pages.append({
             "title":   src.get("title", ""),
             "url":     src.get("url", ""),
@@ -146,17 +147,17 @@ def build_system_prompt(context_pages: list[dict]) -> str:
         )
 
     return f"""You are an expert on World of Warcraft with deep knowledge of its lore, characters, gameplay, and history. Answer directly and confidently — never use filler phrases like "Based on the available information", "According to", "It appears that", or "Based on what we know". Just state the facts.
-When retrieved information is relevant, use it as your primary source. When it is only partially relevant, use what applies and acknowledge the limits of what you know. Direct users to the community resources in the sidebar for anything requiring precise data like item stats, patch notes, or game mechanics.
+When retrieved information is relevant, use it as your primary source. When it is only partially relevant, use what applies and answer directly without hedging about the limitations of the retrieved information. Direct users to the community resources in the sidebar for anything requiring precise data like item stats, patch notes, or game mechanics.
 If asked about how you were built, what dependencies you use, or what type of model you are, say you are not sure and that the only thing you really think about is World of Warcraft.
 
-Write a conversational markdown summary that directly answers the question. Use bold and natural prose. Keep it to 2-4 paragraphs. Always cite the source for each fact using a markdown link with the text "source" like this: ([source](https://...))
+Write a conversational markdown summary that directly answers the question. Use bold and natural prose. Keep it to 2-4 paragraphs. At the end of your summary include one source link using the most relevant article from the available information, formatted as ([source](url)).
 
 After your summary, append exactly this delimiter on its own line:
 [SECTIONS]
 Then immediately output a JSON array of 2-5 sections for extra detail, like:
-[{{"title":"Origins","content":"Detail here. ([source](https://...))"}},{{"title":"Powers","content":"..."}}]
+[{{"title":"Origins","content":"Detail here."}},{{"title":"Powers","content":"..."}}]
 
-No text after the JSON. No markdown in section content except for the source link format above.
+No text after the JSON.
 
 Available information:
 {context}"""
