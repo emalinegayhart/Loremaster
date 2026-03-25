@@ -113,8 +113,8 @@ def search_wowpedia(query: str, limit: int = 5) -> list[dict]:
             "highlight": {
                 "fields": {
                     "content": {
-                        "fragment_size": 500,
-                        "number_of_fragments": 2,
+                        "fragment_size": 1500,
+                        "number_of_fragments": 3,
                     }
                 }
             },

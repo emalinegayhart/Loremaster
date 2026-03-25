@@ -3,6 +3,7 @@ data/
 !evals/data/
 !evals/data/benchmark.json
 !evals/results/
+!evals/generation/benchmark.json
 go-scraper/checkpoint.json
 __pycache__/
 *.pyc
@@ -15,3 +16,4 @@ webapp/frontend/dist/
 nohup.out
 .DS_Store
 *.md
+!evals/generation/metric_definitions.md

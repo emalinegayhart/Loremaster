@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Who is Arthas Menethil?",
+    "reference": "Arthas Menethil was the Crown Prince of Lordaeron and a Knight of the Silver Hand. He became a death knight after claiming the cursed runeblade Frostmourne in Northrend, sacrificing his soul in the process. He eventually became the Lich King after merging with Ner'zhul, and ruled from the Frozen Throne in Icecrown Citadel until he was defeated by a group of adventurers.",
+    "category": "lore"
+  },
+  {
+    "question": "What is Frostmourne?",
+    "reference": "Frostmourne is a cursed runeblade created by the Lich King. It was used by Arthas Menethil after he claimed it in Northrend, which caused him to lose his soul and become a death knight. The sword has the power to steal the souls of those it kills. It was eventually shattered during the final battle against the Lich King in Icecrown Citadel.",
+    "category": "lore"
+  },
+  {
+    "question": "What is the Wrathgate?",
+    "reference": "The Wrathgate, also known as Angrathar the Wrathgate, is a massive iron gate that serves as the entrance to Icecrown from the Dragonblight in Northrend. It was the site of a major battle where Horde and Alliance forces fought against the Scourge. The battle was interrupted when a faction of undead called the Forsaken Royal Apothecary Society unleashed a plague that killed both Scourge and Alliance and Horde forces, including High Overlord Saurfang the Younger.",
+    "category": "lore"
+  },
+  {
+    "question": "What is twinking in WoW?",
+    "reference": "Twinking is the practice of equipping a low-level character with the best possible gear available at their level bracket to dominate in PvP. Twinks typically lock their experience gain to stay in a specific bracket and use rare drops, crafted items, and enchants that are unusually powerful for their level.",
+    "category": "gameplay"
+  },
+  {
+    "question": "What is the difference between Horde and Alliance?",
+    "reference": "The Horde and Alliance are the two main factions in World of Warcraft. The Alliance is composed of races such as humans, dwarves, gnomes, night elves, draenei, and worgen, and is based in Stormwind. The Horde is composed of races such as orcs, trolls, tauren, undead, blood elves, and goblins, and is based in Orgrimmar. The two factions are in constant conflict throughout the game.",
+    "category": "gameplay"
+  },
+  {
+    "question": "Who is Sylvanas Windrunner?",
+    "reference": "Sylvanas Windrunner is a former Ranger-General of Silvermoon who was killed by Arthas Menethil and raised as a banshee. She eventually regained her body and became the leader of the Forsaken undead faction. She later became Warchief of the Horde after Garrosh Hellscream and Vol'jin. She is known for burning Teldrassil and for her role in the Shadowlands storyline where she shattered the Helm of Domination.",
+    "category": "lore"
+  },
+  {
+    "question": "What is the Lich King?",
+    "reference": "The Lich King is the ruler of the undead Scourge and resides on the Frozen Throne in Icecrown Citadel in Northrend. The original Lich King was Ner'zhul, an orc shaman whose spirit was trapped in armor by Kil'jaeden. Arthas Menethil later merged with Ner'zhul to become the new Lich King. After Arthas was defeated, Bolvar Fordragon became the new Lich King to keep the Scourge in check.",
+    "category": "lore"
+  },
+  {
+    "question": "What is Illidan Stormrage known for?",
+    "reference": "Illidan Stormrage is a night elf demon hunter and the twin brother of Malfurion Stormrage. He is known for drinking from the Skull of Gul'dan which transformed him into a demon-like being. He was imprisoned for ten thousand years for creating a new Well of Eternity. After being freed he took control of Outland and the Black Temple. He is often associated with the quote 'You are not prepared.' He was later revealed to be a crucial weapon against the Burning Legion.",
+    "category": "lore"
+  },
+  {
+    "question": "What dropped from Onyxia?",
+    "reference": "Onyxia is a black dragon who is the daughter of Deathwing. She dropped tier 2 headpieces for all classes, the Onyxia Scale Cloak, and had a chance to drop the Deathbringer sword and the Vis'kag the Bloodletter. She was also known for dropping a very rare mount called Onyxia's Lair.",
+    "category": "item"
+  },
+  {
+    "question": "What is Thunderfury Blessed Blade of the Windseeker?",
+    "reference": "Thunderfury Blessed Blade of the Windseeker is a legendary one-handed sword from vanilla WoW. It required players to collect two bindings that dropped from Garr and Baron Geddon in Molten Core, then complete a quest chain involving Highlord Demitrian. The weapon is known for its powerful proc that reduces enemy threat generation and chains lightning to nearby enemies. It became a famous meme in the WoW community.",
+    "category": "item"
+  }
+]
