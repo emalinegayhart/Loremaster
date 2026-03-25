@@ -16,3 +16,4 @@ webapp/frontend/dist/
 nohup.out
 .DS_Store
 *.md
+!evals/generation/metric_definitions.md
