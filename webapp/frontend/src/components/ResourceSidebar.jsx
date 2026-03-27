@@ -27,7 +27,7 @@ export default function ResourceSidebar() {
         </a>
       ))}
       <a
-        href="https://github.com/emzra/loremaster"
+        href="https://github.com/emalinegayhart/loremaster"
         target="_blank"
         rel="noreferrer"
         className="sidebar-github"
