@@ -18,15 +18,15 @@ BENCHMARK          = Path(__file__).parent / "benchmark.json"
 DIMENSIONS         = ["correctness", "faithfulness", "relevance"]
 COMPARE_STRATEGIES = ["best_fields", "rrf_elser"]
 
-# Mirrors the backend system prompt but without the [SECTIONS] delimiter
-# since we only need the narrative response for eval purposes
-SYSTEM_PROMPT = """You are an expert on World of Warcraft with deep knowledge of its lore, characters, gameplay, and history. Answer directly and confidently — never use filler phrases like "Based on the available information", "According to", "It appears that", or "Based on what we know". Just state the facts.
+BASE_SYSTEM_PROMPT = """You are an expert on World of Warcraft with deep knowledge of its lore, characters, gameplay, and history. Answer directly and confidently — never use filler phrases like "Based on the available information", "According to", "It appears that", or "Based on what we know". Just state the facts.
 When retrieved information is relevant, use it as your primary source. When it is only partially relevant, use what applies and acknowledge the limits of what you know.
 
-Write a conversational markdown summary that directly answers the question. Use bold and natural prose. Keep it to 2-4 paragraphs.
+{instruction} Keep it to 2-4 paragraphs.
 
 Available information:
 {context}"""
+
+DEFAULT_INSTRUCTION = "Write a markdown summary that directly answers the question."
 
 
 def search_with_snippets(question: str, strategy_name: str) -> list[str]:
@@ -50,12 +50,12 @@ def search_with_snippets(question: str, strategy_name: str) -> list[str]:
     return snippets
 
 
-def generate(question: str, snippets: list[str]) -> str:
+def generate(question: str, snippets: list[str], instruction: str = DEFAULT_INSTRUCTION) -> str:
     context = "\n\n---\n\n".join(snippets) if snippets else "No relevant information found."
     resp = client.messages.create(
         model="claude-haiku-4-5",
         max_tokens=1500,
-        system=SYSTEM_PROMPT.format(context=context),
+        system=BASE_SYSTEM_PROMPT.format(instruction=instruction, context=context),
         messages=[{"role": "user", "content": question}],
     )
     return resp.content[0].text.strip()

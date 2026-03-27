@@ -15,16 +15,6 @@
     "category": "lore"
   },
   {
-    "question": "What is twinking in WoW?",
-    "reference": "Twinking is the practice of equipping a low-level character with the best possible gear available at their level bracket to dominate in PvP. Twinks typically lock their experience gain to stay in a specific bracket and use rare drops, crafted items, and enchants that are unusually powerful for their level.",
-    "category": "gameplay"
-  },
-  {
-    "question": "What is the difference between Horde and Alliance?",
-    "reference": "The Horde and Alliance are the two main factions in World of Warcraft. The Alliance is composed of races such as humans, dwarves, gnomes, night elves, draenei, and worgen, and is based in Stormwind. The Horde is composed of races such as orcs, trolls, tauren, undead, blood elves, and goblins, and is based in Orgrimmar. The two factions are in constant conflict throughout the game.",
-    "category": "gameplay"
-  },
-  {
     "question": "Who is Sylvanas Windrunner?",
     "reference": "Sylvanas Windrunner is a former Ranger-General of Silvermoon who was killed by Arthas Menethil and raised as a banshee. She eventually regained her body and became the leader of the Forsaken undead faction. She later became Warchief of the Horde after Garrosh Hellscream and Vol'jin. She is known for burning Teldrassil and for her role in the Shadowlands storyline where she shattered the Helm of Domination.",
     "category": "lore"
@@ -40,6 +30,151 @@
     "category": "lore"
   },
   {
+    "question": "What are Mystics in Warcraft III and where do you encounter them?",
+    "reference": "Mystics were night elf units in Warcraft III: Reign of Chaos that appeared exclusively in the night elf mission Brothers in Blood. They were part of the Barrow Deeps Watchers and resided in the prison's library, where they guarded magical artifacts. Notable for casting shamanistic spells, they were the only non-druid male night elves in the game.",
+    "category": "lore"
+  },
+  {
+    "question": "How do I get Sylvanas in her banshee form in Warcraft III, and what abilities does she have?",
+    "reference": "In Warcraft III, you can get Sylvanas in her banshee form in The Fall of Silvermoon by completing an optional quest, though in Reforged you only need to reach the gates of Silvermoon to defeat her. Her abilities include Curse, which gives target enemies a 33% chance to miss attacks, and Anti-magic Shell, which creates a barrier that grants spell immunity to a target unit for 90 seconds.",
+    "category": "lore"
+  },
+  {
+    "question": "What happened to the original Harvester of Wrath, and who has the title now?",
+    "reference": "The original Harvester of Wrath had her power stripped from her and given to the Stonewright, who now holds the title of Harvester of Wrath. According to the Curator, the original Harvester of Wrath still exists but hasn't been seen for 'a few epochs' and her whereabouts are unknown.",
+    "category": "lore"
+  },
+  {
+    "question": "Who is Lei Shen and what did he do in World of Warcraft?",
+    "reference": "Lei Shen, also known as the Thunder King, was the first emperor of the mogu and the most powerful warlord in mogu history. After stealing the power of storms from the titan keeper Ra, he united the mogu clans into the first great mogu empire and made significant contributions to Pandaria, most notably constructing the Serpent's Spine barrier to separate the mantid from the rest of the Empire. In recent times, he was resurrected by Zandalari allies and attempted to unify the mogu again, but was defeated by a combined assault from the Shado-Pan, Alliance, and Horde on the Isle of Thunder.",
+    "category": "lore"
+  },
+  {
+    "question": "Who plays young Varian Wrynn in the Warcraft movie?",
+    "reference": "Dylan Schombing plays young Varian Wrynn in the Warcraft movie.",
+    "category": "lore"
+  },
+  {
+    "question": "Who was Yol'Tithian and what did he do during the War of the Ancients?",
+    "reference": "Yol'Tithian was a Highborne sorcerer who assisted Dath'Remar Sunstrider in escaping from Zin-Azshari during the War of the Ancients.",
+    "category": "lore"
+  },
+  {
+    "question": "What is the Wanderer's Way philosophy that pandaren follow, and who are some examples of characters that practice it?",
+    "reference": "The Wanderer's Way is a pandaren philosophy that teaches followers to take each journey one step at a time, observe everything around them, speak to everyone they meet, and soak in all the details, while also knowing when to explore and when to stand and fight. Notable practitioners of this philosophy include Liu Lang, Chen Stormstout, and Li Li Stormstout.",
+    "category": "lore"
+  },
+  {
+    "question": "What exactly is a cartel in World of Warcraft, and how are goblins organized into them?",
+    "reference": "A cartel is a large group of traders in goblin and Broker society. Goblins are organized into cartels, which are the most powerful groups among goblin society. After goblins ended their conflicts with each other, they formed cartels as rival organizations that compete in trade and economics rather than warfare. These cartels are typically led by trade princes, though not exclusively.",
+    "category": "lore"
+  },
+  {
+    "question": "Who is Bolten Vanyst and what's his connection to Tyrathan Khort?",
+    "reference": "Bolten Vanyst is the lord of the Vanyst family to whom Tyrathan Khort had sworn his service. Bolten directed Khort to lead a squad of scouts to the Serpent's Heart in Pandaria, but the mission resulted in an attack by the Sha that killed all scouts except Khort. Feeling guilt over the incident, Khort later believed Bolten used his nephew Morelan as a tool to further his own ambitions during the Pandaria campaign.",
+    "category": "lore"
+  },
+  {
+    "question": "What is twinking in WoW?",
+    "reference": "Twinking is the practice of equipping a low-level character with the best possible gear available at their level bracket to dominate in PvP. Twinks typically lock their experience gain to stay in a specific bracket and use rare drops, crafted items, and enchants that are unusually powerful for their level.",
+    "category": "gameplay"
+  },
+  {
+    "question": "What is the difference between Horde and Alliance?",
+    "reference": "The Horde and Alliance are the two main factions in World of Warcraft. The Alliance is composed of races such as humans, dwarves, gnomes, night elves, draenei, and worgen, and is based in Stormwind. The Horde is composed of races such as orcs, trolls, tauren, undead, blood elves, and goblins, and is based in Orgrimmar. The two factions are in constant conflict throughout the game.",
+    "category": "gameplay"
+  },
+  {
+    "question": "What's the deal with Iron Qon in Throne of Thunder? Does he have different phases or is it just a straight DPS fight?",
+    "reference": "Iron Qon is not a straight DPS fight \u2014 it is a four-phase encounter where Qon switches between different magical quilen champions, each empowered with vicious elemental attacks. This creates four separate intense fights rolled into one, rather than a simple tank-and-spank. The overall fight involves tank-and-spank mechanics combined with environment awareness mechanics.",
+    "category": "gameplay"
+  },
+  {
+    "question": "Hey, I just leveled up my mage to 42. What's the best food I can conjure at my level and how much health does it restore?",
+    "reference": "At level 42, you can conjure Conjured Sourdough (Rank 5), which restores 1392 health over 30 seconds. This is the best food available at your level according to the spell ranks provided.",
+    "category": "gameplay"
+  },
+  {
+    "question": "What's the best aspect to use when I'm fighting enemies up close as a hunter?",
+    "reference": "According to the article, Aspect of the Monkey was the best Animal Aspect to use while engaged in melee combat prior to attaining Aspect of the Dragonhawk. It was a defensive aspect that increased dodge and lowered your damage taken when fighting enemies up close.",
+    "category": "gameplay"
+  },
+  {
+    "question": "I'm working on the Druid quest chain and I'm stuck on 'The Eagle's Essence' - where do I find the Shrine of the Eagle and how do I summon the guardian?",
+    "reference": "The Shrine of the Eagle is located in the hills to the south of Lake Jorune and west of Stonebreaker Hold in Terokkar Forest, at coordinates (46,45). To summon the guardian, fly to the shrine and click on it.",
+    "category": "gameplay"
+  },
+  {
+    "question": "I got Gloves of the Vanquished Defender from Leotheras the Blind, but I'm not sure what to do with it. Can I trade it in for gear?",
+    "reference": "Yes, you can trade in Gloves of the Vanquished Defender for gear. You can exchange it at Kalara at Shattrath's Aldor Rise or Veynna Dawnstar on the Scryer's Tier for various items, or at Olus at the Isle of Quel'Danas for Season 2 PvP items.",
+    "category": "gameplay"
+  },
+  {
+    "question": "How do I turn my Lightwell into Lightspring as a priest?",
+    "reference": "To turn your Lightwell into Lightspring as a priest, you need to use the Glyph of Lightspring. This glyph transforms Lightwell into Lightspring.",
+    "category": "gameplay"
+  },
+  {
+    "question": "How do I unlock the Ebon Knight Frostreavers for my Death Knight class hall?",
+    "reference": "To unlock the Ebon Knight Frostreavers for your Death Knight class hall, you need to purchase the Class Hall advancement called 'Frost and Death' for Acherus: The Ebon Hold. Once purchased, this advancement will make Eran Droll appear, who can then recruit Ebon Knight Frostreavers.",
+    "category": "gameplay"
+  },
+  {
+    "question": "Where can I get Curious Coins to buy stuff from Xur'ios in Dalaran?",
+    "reference": "You can get Curious Coins from rare spawns in the Broken Isles and Argus, treasure chests in the Broken Isles and Argus, emissary caches from completing 4 World Quests, paragon caches for reaching every 10,000 paragon reputation with a faction, Mythic+ Challenger's Cache, winning battlegrounds, and bosses in Invasion Points, dungeons, raids, and world bosses.",
+    "category": "gameplay"
+  },
+  {
+    "question": "Where can I farm the pieces for Desolation Battlegear and which bosses drop them?",
+    "reference": "Desolation Battlegear pieces can be farmed from four dungeons and their respective bosses: Talon King Ikiss in Sethekk Halls, Epoch Hunter in Durnholde Keep (Heroic), Warchief Kargath Bladefist in The Shattered Halls, Aeonus in The Black Morass, and Quagmirran in Slave Pens (Heroic).",
+    "category": "gameplay"
+  },
+  {
+    "question": "Where can I buy ram mounts as an Alliance player, and what do I need to get them?",
+    "reference": "Alliance players can buy ram mounts from Amberstill Ranch, east of Ironforge in northern Dun Morogh. To purchase Apprentice-level rams (60% speed increase), you need the Apprentice riding skill and, if you're not a Dwarf, Ironforge reputation. For Journeyman-level rams (100% speed increase), you need the Journeyman riding skill with the same reputation requirements for non-Dwarves.",
+    "category": "gameplay"
+  },
+  {
+    "question": "I'm a new player and I keep hearing about Gadgetzan. What exactly is that place and why can both Horde and Alliance go there?",
+    "reference": "Gadgetzan is the capital city of the Steamwheedle Cartel, the largest goblin cartel, located in the Tanaris desert. Both Horde and Alliance can go there because goblins prioritize profit above loyalty and consider Gadgetzan neutral territory in any Horde-Alliance conflict. Both governments officially recognize goblin neutrality, and the city's streets are heavily patrolled by goblin bruisers to enforce peace and protect their trade.",
+    "category": "gameplay"
+  },
+  {
+    "question": "What food item do mages conjure at high levels, and how many does a level 70 mage get per cast?",
+    "reference": "Mages conjure Conjured Croissants at high levels. A level 70 mage creates 10 charges per cast using the rank 8 spell Conjure Food.",
+    "category": "gameplay"
+  },
+  {
+    "question": "Hey, I'm doing Terrace of Endless Spring for the first time. What's the deal with Lei Shi? Is she hard and what should our raid know before we pull her?",
+    "reference": "Lei Shi is the third boss in Terrace of Endless Spring and involves challenging tank swap mechanics with strong adds that revive periodically. Your raid should position in a triangle formation with tanks on separate corners to minimize Spray damage, and be prepared for frequent tank switches when she casts Protect at 80%, 60%, 40%, and 20% health. The main challenge is managing the reviving Corrupted Protectors while handling the tank swap mechanics.",
+    "category": "gameplay"
+  },
+  {
+    "question": "How is Freezing Arrow different from just laying a regular Freezing Trap, and when would I want to use it instead?",
+    "reference": "Freezing Arrow allows hunters to place a Freezing Trap at a distance using a targeting reticule, rather than having to be in melee range to lay a regular trap. This is particularly useful because it doesn't require the mob to be targeted or in focus, enabling hunters to crowd control ranged mobs, re-establish CC when a previous trap breaks, and chain-trap more flexibly without disengaging from their main target.",
+    "category": "gameplay"
+  },
+  {
+    "question": "How do I beat Kang Bramblestaff in Round 2 of the tournament?",
+    "reference": "To beat Kang Bramblestaff in Round 2 of the tournament, you must defeat him in combat at the eastern arena north of your current location. The article does not provide specific strategy details beyond noting that strength runs in the Bramblestaff family.",
+    "category": "gameplay"
+  },
+  {
+    "question": "I'm trying to get reputation with Ogri'la and I see these Bloodmaul Brutes in Blade's Edge Mountains. Can I kill them without messing up my rep gains?",
+    "reference": "Yes, you can kill Bloodmaul Brutes without damaging your Ogri'la reputation. According to the article, while these ogres become neutral with Ogri'la, they remain attackable without affecting your reputation gains with that faction.",
+    "category": "gameplay"
+  },
+  {
+    "question": "Where do I find Bladeguard Sonji for the vulpera recruitment questline?",
+    "reference": "During the vulpera recruitment questline, Bladeguard Sonji can be found in Grommash Hold in Orgrimmar, where she petitions Baine Bloodhoof for additional forces to defend Zuldazar's southern coast against a naga attack.",
+    "category": "gameplay"
+  },
+  {
+    "question": "Where can I find Zandalari Bladeguards in World of Warcraft, and what abilities do they have?",
+    "reference": "Zandalari Bladeguards are Zandalari trolls found in Dazar'alor and Zuldazar, and also appear in Warport Rastari and Xibala during the Alliance War Campaign. Their abilities include Rending Cut, Mortal Strike (which inflicts physical damage and reduces healing received by 25% for 10 seconds), and Regeneration (which heals the caster every 2 seconds for 6 seconds).",
+    "category": "gameplay"
+  },
+  {
     "question": "What dropped from Onyxia?",
     "reference": "Onyxia is a black dragon who is the daughter of Deathwing. She dropped tier 2 headpieces for all classes, the Onyxia Scale Cloak, and had a chance to drop the Deathbringer sword and the Vis'kag the Bloodletter. She was also known for dropping a very rare mount called Onyxia's Lair.",
     "category": "item"
@@ -47,6 +182,121 @@
   {
     "question": "What is Thunderfury Blessed Blade of the Windseeker?",
     "reference": "Thunderfury Blessed Blade of the Windseeker is a legendary one-handed sword from vanilla WoW. It required players to collect two bindings that dropped from Garr and Baron Geddon in Molten Core, then complete a quest chain involving Highlord Demitrian. The weapon is known for its powerful proc that reduces enemy threat generation and chains lightning to nearby enemies. It became a famous meme in the WoW community.",
+    "category": "item"
+  },
+  {
+    "question": "How do I get the Prideful Gladiator's Cloud Serpent mount?",
+    "reference": "The Prideful Gladiator's Cloud Serpent was awarded to top ranking arena teams at the end of Arena Season 15.",
+    "category": "item"
+  },
+  {
+    "question": "Where can I get the Replica Field Marshal's Mail Helm and what rank do I need to buy it?",
+    "reference": "The Replica Field Marshal's Mail Helm can be purchased from Krixel Pinchwhistle in Netherstorm. You need to have earned the rank of Knight-Lieutenant (or its legacy version, Knight-Lieutenant (Legacy)) or higher to buy it.",
+    "category": "item"
+  },
+  {
+    "question": "Where can I get the Raid Finder tier gear from Blackrock Foundry, and what item level is it?",
+    "reference": "The Raid Finder tier gear from Blackrock Foundry can be obtained directly from bosses or through bonus rolls. It is item level 655 and comes in four sets based on armor type (cloth, leather, mail, and plate) rather than class-specific sets.",
+    "category": "item"
+  },
+  {
+    "question": "How do I get the Field Marshal's Plate Helm for transmog if I didn't earn it back in the day?",
+    "reference": "You can purchase the Replica Field Marshal's Plate Helm from Krixel Pinchwhistle in Netherstorm, provided you have earned Knight-Lieutenant (or its legacy version) or higher.",
+    "category": "item"
+  },
+  {
+    "question": "Where can I farm or find the Mammoth Helm in World of Warcraft?",
+    "reference": "Mammoth Helm is a world drop in World of Warcraft. This means it can be obtained from defeating enemies anywhere in the game world, rather than from a specific location or boss.",
+    "category": "item"
+  },
+  {
+    "question": "How do I get the Elegant Shortsword in WoW Classic?",
+    "reference": "The Elegant Shortsword is a quest reward from Serena Bloodfeather in WoW Classic. To obtain it, you need to complete a quest from this NPC.",
+    "category": "item"
+  },
+  {
+    "question": "How do I get the Helm of Yetiphobia in World of Warcraft?",
+    "reference": "The Helm of Yetiphobia is a quest reward obtained by completing the quest called Yetiphobia.",
+    "category": "item"
+  },
+  {
+    "question": "What random enchantments can roll on the Vengeance Blade?",
+    "reference": "The Vengeance Blade can roll a variety of random enchantments as suffixes, including: of the Elder, of the Whale, of the Owl, of Spirit, of the Falcon, of Power, of the Wolf, of the Monkey, of the Champion, of the Sorcerer, of the Boar, of the Beast, of the Bear, of Stamina, of the Bandit, of the Gorilla, of the Tiger, of Agility, of the Eagle, of Strength, and of Intellect.",
+    "category": "item"
+  },
+  {
+    "question": "How do I craft the Honorable Combatant's Spellblade and where can I get the higher rank recipes?",
+    "reference": "The Honorable Combatant's Spellblade is crafted using Blacksmithing with a skill requirement of 75. Higher rank recipes (Rank 2 and Rank 3) can be purchased from a vendor, though the specific vendor name and costs are not fully detailed in the article.",
+    "category": "item"
+  },
+  {
+    "question": "Where can I buy the Cosmic Aspirant's Staff and how much does it cost?",
+    "reference": "The Cosmic Aspirant's Staff can be purchased from Purveyor Zo'kuul located in the Enclave in Oribos. However, the article does not specify the cost of the item.",
+    "category": "item"
+  },
+  {
+    "question": "Where can I get the Tale-Teller's Staff? I've been looking for it for a while now.",
+    "reference": "The Tale-Teller's Staff can be obtained as a reward from Class Hall missions including A Fel Journey, Mind Your Step, Great Steaks, Shoot to Thrill, Traitors Below, and Critical Crops. It is also available as a quest reward from poor elite world quests in the Broken Isles, and can be found inside Kirin Tor Chests and Curious Wyrmtongue Caches.",
+    "category": "item"
+  },
+  {
+    "question": "How do I get the Dread Aspirant's Leather Helm in World of Warcraft?",
+    "reference": "You can obtain the Dread Aspirant's Leather Helm from a War Supply Chest in Kul Tiras or Zandalar while in War Mode.",
+    "category": "item"
+  },
+  {
+    "question": "Where do I get the Dream-Wing Helm and what boss drops it?",
+    "reference": "The Dream-Wing Helm drops from Ambassador Hellmaw in Shadow Labyrinth.",
+    "category": "item"
+  },
+  {
+    "question": "Where do I find Bowyer Randolph and what quests does he have?",
+    "reference": "Bowyer Randolph is located in the Wintergrasp Fortress in Northrend. He offers the quest \"Bones and Arrows\" for Alliance players.",
+    "category": "lore"
+  },
+  {
+    "question": "What happens if the Acidic Globule reaches Yor'sahj during that fight?",
+    "reference": "If the Acidic Globule reaches Yor'sahj during that fight, the Maw of Shu'ma infuses with the acidic blood and stimulates further Digestive Acid production, infusing Yor'sahj with additional powers.",
+    "category": "lore"
+  },
+  {
+    "question": "Where can I find quests and trainers for my low-level dwarf character in Dun Morogh?",
+    "reference": "You can find quests and trainers for your low-level dwarf character at Gol'Bolar Quarry, a large dig site in southeastern Dun Morogh. This dwarven mining camp offers missions for young dwarves and gnomes to exterminate troggs, and has vendors and profession trainers available to aid fresh adventurers.",
+    "category": "lore"
+  },
+  {
+    "question": "Who was Kelmarin in World of Warcraft lore and what role did he play during the Third War?",
+    "reference": "Kelmarin was a high elf ranger who served under Sylvanas Windrunner during the Third War. He was one of three scouts sent to investigate the Scourge army, and he distinguished himself by returning to inform Sylvanas of the approaching enemy forces while his fellow scouts waited. Sylvanas trusted him greatly, knowing his information was always accurate and detailed.",
+    "category": "lore"
+  },
+  {
+    "question": "What exactly are the jinyu in World of Warcraft and where do they come from?",
+    "reference": "The jinyu are a race of humanoid fish-like creatures that live in Pandaria. They originated from murlocs who lived near the enchanted pools of the Vale of Eternal Blossoms, where the magic expanded their minds and bodies until they became one of Pandaria's great ancient cultures. They are an elder and wise race known as masters of the water, worshipping the August Celestials in return for knowledge and guidance.",
+    "category": "lore"
+  },
+  {
+    "question": "Where can I get the Primal Gladiator's Chain Helm and what do I need to do to earn it?",
+    "reference": "The article does not contain information about where to get the Primal Gladiator's Chain Helm or what is needed to earn it. The article only shows the item title and patch changes section, but the actual content describing how to obtain the item is not included.",
+    "category": "item"
+  },
+  {
+    "question": "Hey, I'm trying to do that quest with Chromie in the Caverns of Time where you relive old expansions. Do you know what the item level requirement is to pick it up?",
+    "reference": "According to the article, you must have an equipped item level of at least 380 to pick up the quest 'How Things \"Really\" Happened...' with Chromie in the Caverns of Time.",
+    "category": "item"
+  },
+  {
+    "question": "Where do I get the Deathbinder's Staff and what boss drops it?",
+    "reference": "The Deathbinder's Staff drops from the boss Deathbinder Hroth, who is located at Darkreach in Ardenweald.",
+    "category": "item"
+  },
+  {
+    "question": "Where can I farm the Der'izu Helm and what stats can it roll with?",
+    "reference": "Der'izu Helm is a world drop from level 66-70 mobs. It can roll with various random enchantments providing different stat combinations, including bonuses to Stamina, Intellect, Spirit, Agility, Strength, Attack Power, Spell Damage, Healing, Defense Rating, Resistances, and Critical Strike Rating.",
+    "category": "item"
+  },
+  {
+    "question": "What kind of rewards can I get from a Greater Cache of Treasures in scenarios?",
+    "reference": "Greater Caches of Treasures can contain Brawler's Guild items, Vial of Reddish Ooze, The Bear and the Lady Fair item, 1-3x Mote of Harmony, 60 Justice Points, and random enchant items of level 450/463/476.",
     "category": "item"
   }
 ]
