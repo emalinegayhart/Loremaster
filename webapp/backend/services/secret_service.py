@@ -31,7 +31,7 @@ class SecretService:
         
         cls.JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
         
-        cls.DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@localhost/loremaster")
+        cls.DATABASE_URL = os.getenv("DATABASE_URL") or os.getenv("NEON_CONNECTION_STRING", "postgresql://user:password@localhost/loremaster")
         
         cls.API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
         
