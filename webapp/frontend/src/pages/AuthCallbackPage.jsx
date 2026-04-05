@@ -1,46 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useAuthCallback } from '../hooks/useAuthCallback';
 import './AuthCallbackPage.css';
 
-export function AuthCallbackPageComponent({ initialError = null, initialLoading = true }) {
-  const [error, setError] = useState(initialError);
-  const [isLoading, setIsLoading] = useState(initialLoading);
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
-    const state = params.get('state');
-    const errorParam = params.get('error');
-    
-    const hasUrlParams = code || state || errorParam;
-    
-    if (!hasUrlParams) return;
-
-    const handleCallback = async () => {
-      try {
-        if (errorParam) {
-          setError(errorParam);
-          setIsLoading(false);
-          return;
-        }
-
-        if (!code || !state) {
-          setError('Missing authorization code or state');
-          setIsLoading(false);
-          return;
-        }
-
-        await new Promise(resolve => setTimeout(resolve, 2000));
-
-        window.location.href = '/editor';
-      } catch (err) {
-        setError(err.message || 'Authentication failed');
-        setIsLoading(false);
-      }
-    };
-
-    handleCallback();
-  }, []);
-
+export function AuthCallbackPageContent({ isLoading, error }) {
   if (error) {
     return (
       <div className="auth-callback-container">
@@ -66,5 +28,6 @@ export function AuthCallbackPageComponent({ initialError = null, initialLoading 
 }
 
 export default function AuthCallbackPage() {
-  return <AuthCallbackPageComponent />;
+  const { isLoading, error } = useAuthCallback();
+  return <AuthCallbackPageContent isLoading={isLoading} error={error} />;
 }

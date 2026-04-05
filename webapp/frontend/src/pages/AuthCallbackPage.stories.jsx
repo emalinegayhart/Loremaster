@@ -1,8 +1,8 @@
-import { AuthCallbackPageComponent } from './AuthCallbackPage';
+import { AuthCallbackPageContent } from './AuthCallbackPage';
 
 export default {
   title: 'Pages/AuthCallbackPage',
-  component: AuthCallbackPageComponent,
+  component: AuthCallbackPageContent,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
@@ -11,43 +11,43 @@ export default {
 
 export const Loading = {
   args: {
-    initialError: null,
-    initialLoading: true,
+    isLoading: true,
+    error: null,
   },
 };
 
 export const ErrorAccessDenied = {
   args: {
-    initialError: 'access_denied',
-    initialLoading: false,
+    isLoading: false,
+    error: 'access_denied',
   },
 };
 
 export const ErrorInvalidGrant = {
   args: {
-    initialError: 'invalid_grant',
-    initialLoading: false,
+    isLoading: false,
+    error: 'invalid_grant',
   },
 };
 
 export const ErrorMissingCode = {
   args: {
-    initialError: 'Missing authorization code or state',
-    initialLoading: false,
+    isLoading: false,
+    error: 'Missing authorization code or state',
   },
 };
 
 export const ErrorServerError = {
   args: {
-    initialError: 'server_error',
-    initialLoading: false,
+    isLoading: false,
+    error: 'server_error',
   },
 };
 
 export const Mobile = {
   args: {
-    initialError: null,
-    initialLoading: true,
+    isLoading: true,
+    error: null,
   },
   parameters: {
     viewport: {

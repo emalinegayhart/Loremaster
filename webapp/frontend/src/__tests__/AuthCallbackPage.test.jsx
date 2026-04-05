@@ -1,55 +1,54 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { AuthCallbackPageComponent } from '../pages/AuthCallbackPage';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import AuthCallbackPage, { AuthCallbackPageContent } from '../pages/AuthCallbackPage';
 
 describe('AuthCallbackPage', () => {
+  let queryClient;
+
   beforeEach(() => {
     vi.clearAllMocks();
+    queryClient = new QueryClient({
+      defaultOptions: {
+        queries: { retry: false },
+      },
+    });
   });
 
-  it('displays loading spinner initially', () => {
-    render(<AuthCallbackPageComponent />);
+  it('displays loading spinner', () => {
+    render(<AuthCallbackPageContent isLoading={true} error={null} />);
     expect(screen.getByText('Signing you in...')).toBeInTheDocument();
   });
 
   it('shows spinner element', () => {
-    const { container } = render(<AuthCallbackPageComponent />);
+    const { container } = render(<AuthCallbackPageContent isLoading={true} error={null} />);
     const spinner = container.querySelector('.auth-callback-spinner');
     expect(spinner).toBeInTheDocument();
   });
 
-  it('displays error message when error param exists', () => {
-    render(<AuthCallbackPageComponent initialError="access_denied" initialLoading={false} />);
+  it('displays error message when error exists', () => {
+    render(<AuthCallbackPageContent isLoading={false} error="access_denied" />);
     expect(screen.getByText('access_denied')).toBeInTheDocument();
   });
 
   it('shows retry link on error', () => {
-    render(<AuthCallbackPageComponent initialError="invalid_grant" initialLoading={false} />);
+    render(<AuthCallbackPageContent isLoading={false} error="invalid_grant" />);
     const retryLink = screen.getByText('Back to Login');
     expect(retryLink).toHaveAttribute('href', '/login');
   });
 
-  it('displays error when code is missing', () => {
-    render(<AuthCallbackPageComponent initialError="Missing authorization code or state" initialLoading={false} />);
+  it('displays error message for missing code', () => {
+    render(<AuthCallbackPageContent isLoading={false} error="Missing authorization code or state" />);
     expect(screen.getByText('Missing authorization code or state')).toBeInTheDocument();
   });
 
-  it('displays error when state is missing', () => {
-    render(<AuthCallbackPageComponent initialError="Missing authorization code or state" initialLoading={false} />);
+  it('displays error message for missing state', () => {
+    render(<AuthCallbackPageContent isLoading={false} error="Missing authorization code or state" />);
     expect(screen.getByText('Missing authorization code or state')).toBeInTheDocument();
   });
 
-  it('has accessible error message text', () => {
-    render(<AuthCallbackPageComponent initialError="server_error" initialLoading={false} />);
+  it('has accessible error heading', () => {
+    render(<AuthCallbackPageContent isLoading={false} error="server_error" />);
     expect(screen.getByText('Authentication Failed')).toBeInTheDocument();
-  });
-
-  it('retry button has focus styling', () => {
-    delete window.location;
-    window.location = new URL('http://localhost/auth/callback?error=network_error');
-
-    const { container } = render(<AuthCallbackPage />);
-    const retryButton = container.querySelector('.auth-callback-retry');
-    expect(retryButton.className).toContain('auth-callback-retry');
   });
 });
