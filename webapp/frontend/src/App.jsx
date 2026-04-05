@@ -1,8 +1,9 @@
-import { useReducer, useRef, useEffect } from "react";
+import { useReducer, useRef, useEffect, useState } from "react";
 import "./App.css";
 import Message from "./components/Message";
 import ResourceSidebar from "./components/ResourceSidebar";
 import CoffeeModal from "./components/CoffeeModal";
+import LoginModal from "./components/LoginModal";
 
 function cleanMarkdown(text) {
   return text.replace(/\(\[[^\]]+\]\([^)]*$/, "").trim();
@@ -92,6 +93,7 @@ function reducer(state, action) {
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { messages, input, loading } = state;
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
   const bottomRef = useRef(null);
 
   useEffect(() => {
@@ -159,7 +161,7 @@ export default function App() {
 
   return (
     <div className="layout">
-      <ResourceSidebar />
+      <ResourceSidebar onLearnPromptClick={() => setLoginModalOpen(true)} />
       <div className="app">
         <header className="header" onClick={() => dispatch({ type: "RESET" })} style={{ cursor: "pointer" }}>
           <h1>Loremaster</h1>
@@ -190,6 +192,7 @@ export default function App() {
         </main>
 
         <CoffeeModal />
+        <LoginModal isOpen={loginModalOpen} onClose={() => setLoginModalOpen(false)} />
 
         <footer className="input-area">
           <textarea

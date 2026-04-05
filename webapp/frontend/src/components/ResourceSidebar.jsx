@@ -10,7 +10,7 @@ const RESOURCES = [
   { name: "Reddit",        url: "https://www.reddit.com/r/wow/",      desc: "WoW community discussions on r/wow" },
 ];
 
-export default function ResourceSidebar() {
+export default function ResourceSidebar({ onLearnPromptClick }) {
   return (
     <nav className="resource-sidebar">
       <div className="sidebar-title">Other Resources</div>
@@ -26,6 +26,13 @@ export default function ResourceSidebar() {
           {r.name}
         </a>
       ))}
+      <button 
+        className="learn-prompt-btn" 
+        onClick={onLearnPromptClick}
+        aria-label="Learn to Prompt"
+      >
+        Learn 2 Prompt
+      </button>
       <a
         href="https://github.com/emalinegayhart/loremaster"
         target="_blank"

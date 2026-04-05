@@ -1,0 +1,62 @@
+.login-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.login-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 280px;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(180deg, #2a1a00 0%, #150d00 100%);
+  border: 2px solid transparent;
+  border-image: linear-gradient(to bottom, #8a6a1a, #f0c040 30%, #c8980a 60%, #8a6a1a) 1;
+  box-shadow: 
+    0 0 0 1px #2a1a00, 
+    inset 0 0 0 1px #2a1a00, 
+    0 4px 24px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(240, 192, 64, 0.3),
+    0 0 60px rgba(240, 192, 64, 0.2);
+  overflow: hidden;
+}
+
+.login-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #c8b98a;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.login-modal-close:hover {
+  background-color: rgba(240, 192, 64, 0.1);
+  color: #f0c040;
+}
+
+.login-modal-close:focus {
+  outline: 2px solid #f0c040;
+  outline-offset: 2px;
+}

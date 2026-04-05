@@ -25,13 +25,11 @@ from config import (
     ANTHROPIC_API_KEY,
 )
 
-# Auth imports
 from services import SecretService
 from db import init_db
 from routes.auth import router as auth_router
-from middleware.auth_middleware import TokenExtractionMiddleware
+from middleware.auth_middleware import TokenExtractionMiddleware, ProtectedRouteMiddleware
 
-# Initialize secrets and database
 SecretService.load()
 init_db()
 
@@ -47,7 +45,7 @@ app = FastAPI(title="Loremaster API")
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# Add auth middleware (must be before CORS)
+app.add_middleware(ProtectedRouteMiddleware)
 app.add_middleware(TokenExtractionMiddleware)
 
 app.add_middleware(
@@ -57,7 +55,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Register auth router
 app.include_router(auth_router)
 
 
