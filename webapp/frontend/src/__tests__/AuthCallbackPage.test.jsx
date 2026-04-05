@@ -51,4 +51,11 @@ describe('AuthCallbackPage', () => {
     render(<AuthCallbackPageContent isLoading={false} error="server_error" />);
     expect(screen.getByText('Authentication Failed')).toBeInTheDocument();
   });
+
+  it('retry link is clickable', () => {
+    render(<AuthCallbackPageContent isLoading={false} error="access_denied" />);
+    const retryLink = screen.getByText('Back to Login');
+    expect(retryLink).toBeVisible();
+    expect(retryLink.tagName).toBe('A');
+  });
 });

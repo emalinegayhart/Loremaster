@@ -44,10 +44,29 @@ export const ErrorServerError = {
   },
 };
 
+export const ErrorNetworkError = {
+  args: {
+    isLoading: false,
+    error: 'Network error occurred',
+  },
+};
+
 export const Mobile = {
   args: {
     isLoading: true,
     error: null,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+  },
+};
+
+export const MobileError = {
+  args: {
+    isLoading: false,
+    error: 'access_denied',
   },
   parameters: {
     viewport: {
