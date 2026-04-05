@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AuthCallbackPage, { AuthCallbackPageContent } from '../pages/AuthCallbackPage';
+import { getHumanReadableErrorMessage } from '../utils/errorMessages';
 
 describe('AuthCallbackPage', () => {
   let queryClient;
@@ -26,9 +27,14 @@ describe('AuthCallbackPage', () => {
     expect(spinner).toBeInTheDocument();
   });
 
-  it('displays error message when error exists', () => {
+  it('displays human readable error message for access_denied', () => {
     render(<AuthCallbackPageContent isLoading={false} error="access_denied" />);
-    expect(screen.getByText('access_denied')).toBeInTheDocument();
+    expect(screen.getByText('You denied access. Please try again.')).toBeInTheDocument();
+  });
+
+  it('displays human readable error message for invalid_grant', () => {
+    render(<AuthCallbackPageContent isLoading={false} error="invalid_grant" />);
+    expect(screen.getByText('Your session expired. Please try again.')).toBeInTheDocument();
   });
 
   it('shows retry link on error', () => {
@@ -37,14 +43,14 @@ describe('AuthCallbackPage', () => {
     expect(retryLink).toHaveAttribute('href', '/login');
   });
 
-  it('displays error message for missing code', () => {
+  it('displays human readable error message for missing code', () => {
     render(<AuthCallbackPageContent isLoading={false} error="Missing authorization code or state" />);
-    expect(screen.getByText('Missing authorization code or state')).toBeInTheDocument();
+    expect(screen.getByText('Authentication failed. Please try again.')).toBeInTheDocument();
   });
 
-  it('displays error message for missing state', () => {
-    render(<AuthCallbackPageContent isLoading={false} error="Missing authorization code or state" />);
-    expect(screen.getByText('Missing authorization code or state')).toBeInTheDocument();
+  it('displays human readable error message for server_error', () => {
+    render(<AuthCallbackPageContent isLoading={false} error="server_error" />);
+    expect(screen.getByText('Server error. Please try again.')).toBeInTheDocument();
   });
 
   it('has accessible error heading', () => {

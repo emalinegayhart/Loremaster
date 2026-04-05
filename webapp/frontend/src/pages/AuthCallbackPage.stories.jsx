@@ -44,10 +44,10 @@ export const ErrorServerError = {
   },
 };
 
-export const ErrorNetworkError = {
+export const ErrorTemporarilyUnavailable = {
   args: {
     isLoading: false,
-    error: 'Network error occurred',
+    error: 'temporarily_unavailable',
   },
 };
 
