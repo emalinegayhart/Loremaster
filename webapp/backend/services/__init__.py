@@ -1,5 +1,6 @@
 from .jwt_service import JWTService
 from .oauth_service import OAuthService
 from .secret_service import SecretService
+from .token_blacklist import TokenBlacklistService, get_blacklist
 
-__all__ = ["JWTService", "OAuthService", "SecretService"]
+__all__ = ["JWTService", "OAuthService", "SecretService", "TokenBlacklistService", "get_blacklist"]
