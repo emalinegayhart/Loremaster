@@ -25,6 +25,16 @@ from config import (
     ANTHROPIC_API_KEY,
 )
 
+# Auth imports
+from services import SecretService
+from db import init_db
+from routes.auth import router as auth_router
+from middleware.auth_middleware import TokenExtractionMiddleware
+
+# Initialize secrets and database
+SecretService.load()
+init_db()
+
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 
@@ -37,12 +47,18 @@ app = FastAPI(title="Loremaster API")
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
+# Add auth middleware (must be before CORS)
+app.add_middleware(TokenExtractionMiddleware)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Register auth router
+app.include_router(auth_router)
 
 
 class Message(BaseModel):
