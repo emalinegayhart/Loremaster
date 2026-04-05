@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useMemo } from 'react';
+import { fetchApi } from '../lib/apiclient';
 
 export function useAuthCallback() {
   const urlParams = useMemo(() => {
@@ -22,18 +23,10 @@ export function useAuthCallback() {
         throw new Error('Missing authorization code or state');
       }
 
-      const response = await fetch('/api/auth/callback', {
+      return fetchApi('/api/auth/callback', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code: urlParams.code, state: urlParams.state }),
       });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.detail || 'Authentication failed');
-      }
-
-      return response.json();
     },
     enabled: !urlParams.errorParam && (!!urlParams.code || !!urlParams.state),
     retry: false,
