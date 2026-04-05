@@ -1,45 +1,55 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import LoginModal from '../components/LoginModal';
 
 describe('LoginModal', () => {
-  it('renders LoginModal component', () => {
-    render(<LoginModal />);
-    expect(screen.getByRole('link')).toBeInTheDocument();
+  it('does not render when isOpen is false', () => {
+    const { container } = render(<LoginModal isOpen={false} onClose={vi.fn()} />);
+    expect(container.firstChild).toBeNull();
+  });
+
+  it('renders when isOpen is true', () => {
+    render(<LoginModal isOpen={true} onClose={vi.fn()} />);
+    expect(screen.getByText('Sign in with Google')).toBeInTheDocument();
   });
 
   it('displays "Sign in with Google" text', () => {
-    render(<LoginModal />);
+    render(<LoginModal isOpen={true} onClose={vi.fn()} />);
     expect(screen.getByText('Sign in with Google')).toBeInTheDocument();
   });
 
   it('button link href points to /api/auth/google', () => {
-    render(<LoginModal />);
+    render(<LoginModal isOpen={true} onClose={vi.fn()} />);
     const link = screen.getByRole('link');
     expect(link).toHaveAttribute('href', '/api/auth/google');
   });
 
-  it('has accessible aria-label', () => {
-    render(<LoginModal />);
+  it('has accessible aria-label on button', () => {
+    render(<LoginModal isOpen={true} onClose={vi.fn()} />);
     const link = screen.getByRole('link');
     expect(link).toHaveAttribute('aria-label', 'Sign in with Google');
   });
 
-  it('has focus ring for keyboard navigation', () => {
-    render(<LoginModal />);
-    const link = screen.getByRole('link');
-    expect(link.className).toContain('focus:ring');
+  it('has close button with aria-label', () => {
+    render(<LoginModal isOpen={true} onClose={vi.fn()} />);
+    const closeBtn = screen.getByRole('button', { name: 'Close login' });
+    expect(closeBtn).toBeInTheDocument();
   });
 
-  it('displays branding text', () => {
-    render(<LoginModal />);
-    expect(screen.getByText('Loremaster')).toBeInTheDocument();
-    expect(screen.getByText('World of Warcraft Lore Chat')).toBeInTheDocument();
+  it('calls onClose when close button is clicked', async () => {
+    const onClose = vi.fn();
+    render(<LoginModal isOpen={true} onClose={onClose} />);
+    const closeBtn = screen.getByRole('button', { name: 'Close login' });
+    await userEvent.click(closeBtn);
+    expect(onClose).toHaveBeenCalled();
   });
 
-  it('contains Google logo SVG', () => {
-    render(<LoginModal />);
-    const svg = screen.getByRole('link').querySelector('svg');
-    expect(svg).toBeInTheDocument();
+  it('calls onClose when backdrop is clicked', async () => {
+    const onClose = vi.fn();
+    const { container } = render(<LoginModal isOpen={true} onClose={onClose} />);
+    const backdrop = container.querySelector('.login-modal-backdrop');
+    await userEvent.click(backdrop);
+    expect(onClose).toHaveBeenCalled();
   });
 });

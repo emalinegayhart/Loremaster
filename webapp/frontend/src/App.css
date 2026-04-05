@@ -51,6 +51,36 @@ body {
   overflow: visible;
 }
 
+.learn-prompt-btn {
+  background: linear-gradient(180deg, #3a2200 0%, #1e1000 100%);
+  border: 2px solid transparent;
+  border-image: linear-gradient(to bottom, #8a6a1a, #f0c040, #c8980a) 1;
+  color: #f0c040;
+  padding: 10px 12px;
+  font-family: "Cinzel", serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 0 12px rgba(240, 192, 64, 0.2);
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+.learn-prompt-btn:hover {
+  background: linear-gradient(180deg, #4a2e00 0%, #2a1500 100%);
+  box-shadow: 0 0 20px rgba(240, 192, 64, 0.35);
+  color: #f5d060;
+}
+
+.learn-prompt-btn:active {
+  transform: scale(0.98);
+}
+
 .sidebar-github {
   margin-top: auto;
   display: flex;
