@@ -1,5 +1,6 @@
 import { useReducer, useRef, useEffect, useState, Reducer, ReactNode, ChangeEvent, FormEvent } from 'react';
 import './App.css';
+import { API_BASE_URL } from './lib/env';
 import Message from './components/Message';
 import ResourceSidebar from './components/ResourceSidebar';
 import CoffeeModal from './components/CoffeeModal';
@@ -139,7 +140,7 @@ export default function App(): ReactNode {
 
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/api/chat`,
+        `${API_BASE_URL}/api/chat`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
