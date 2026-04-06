@@ -2,10 +2,15 @@ import React from 'react';
 import GoldButton from './GoldButton';
 import './LoginModal.css';
 
-export default function LoginModal({ isOpen, onClose }) {
+interface LoginModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function LoginModal({ isOpen, onClose }: LoginModalProps): React.ReactNode {
   if (!isOpen) return null;
 
-  const handleBackdropClick = (e) => {
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     if (e.target === e.currentTarget) {
       onClose();
     }
