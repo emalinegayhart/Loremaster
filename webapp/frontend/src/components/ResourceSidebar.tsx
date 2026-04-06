@@ -1,20 +1,60 @@
-const RESOURCES = [
-  { name: "Raidbots",      url: "https://www.raidbots.com/simbot",    desc: "Simulate your character's DPS and gear upgrades" },
-  { name: "Icy Veins",     url: "https://www.icy-veins.com/",         desc: "Class guides and raid strategies" },
-  { name: "Wowhead",       url: "https://www.wowhead.com/",           desc: "Item database, quests, and guides" },
-  { name: "Raider.io",     url: "https://raider.io/",                 desc: "Mythic+ rankings and character scores" },
-  { name: "Warcraft Logs", url: "https://www.warcraftlogs.com/",      desc: "Raid and dungeon performance analysis" },
-  { name: "Bloodmallet",   url: "https://bloodmallet.com/",           desc: "Trinket and item comparisons" },
-  { name: "Keystone.guru", url: "https://keystone.guru/",             desc: "Plan and share M+ dungeon routes" },
-  { name: "CurseForge",    url: "https://www.curseforge.com/",        desc: "Browse and install WoW addons" },
-  { name: "Reddit",        url: "https://www.reddit.com/r/wow/",      desc: "WoW community discussions on r/wow" },
+import React, { ReactNode } from 'react';
+
+interface Resource {
+  name: string;
+  url: string;
+  desc: string;
+}
+
+interface ResourceSidebarProps {
+  onLearnPromptClick: () => void;
+}
+
+const RESOURCES: Resource[] = [
+  {
+    name: 'Raidbots',
+    url: 'https://www.raidbots.com/simbot',
+    desc: 'Simulate your character\'s DPS and gear upgrades',
+  },
+  { name: 'Icy Veins', url: 'https://www.icy-veins.com/', desc: 'Class guides and raid strategies' },
+  { name: 'Wowhead', url: 'https://www.wowhead.com/', desc: 'Item database, quests, and guides' },
+  {
+    name: 'Raider.io',
+    url: 'https://raider.io/',
+    desc: 'Mythic+ rankings and character scores',
+  },
+  {
+    name: 'Warcraft Logs',
+    url: 'https://www.warcraftlogs.com/',
+    desc: 'Raid and dungeon performance analysis',
+  },
+  {
+    name: 'Bloodmallet',
+    url: 'https://bloodmallet.com/',
+    desc: 'Trinket and item comparisons',
+  },
+  {
+    name: 'Keystone.guru',
+    url: 'https://keystone.guru/',
+    desc: 'Plan and share M+ dungeon routes',
+  },
+  {
+    name: 'CurseForge',
+    url: 'https://www.curseforge.com/',
+    desc: 'Browse and install WoW addons',
+  },
+  {
+    name: 'Reddit',
+    url: 'https://www.reddit.com/r/wow/',
+    desc: 'WoW community discussions on r/wow',
+  },
 ];
 
-export default function ResourceSidebar({ onLearnPromptClick }) {
+export default function ResourceSidebar({ onLearnPromptClick }: ResourceSidebarProps): ReactNode {
   return (
     <nav className="resource-sidebar">
       <div className="sidebar-title">Other Resources</div>
-      {RESOURCES.map((r) => (
+      {RESOURCES.map((r): ReactNode => (
         <a
           key={r.name}
           href={r.url}
@@ -26,8 +66,8 @@ export default function ResourceSidebar({ onLearnPromptClick }) {
           {r.name}
         </a>
       ))}
-      <button 
-        className="learn-prompt-btn" 
+      <button
+        className="learn-prompt-btn"
         onClick={onLearnPromptClick}
         aria-label="Learn to Prompt"
       >

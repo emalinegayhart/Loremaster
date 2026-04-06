@@ -1,10 +1,25 @@
-import { useState } from "react";
-import ReactMarkdown from "react-markdown";
+import { useState, ReactNode } from 'react';
+import ReactMarkdown from 'react-markdown';
 
-export default function Message({ message }) {
-  const [openSection, setOpenSection] = useState(null);
+interface MessageSection {
+  title: string;
+  content: string;
+}
 
-  if (message.role === "user") {
+interface MessageProps {
+  message: {
+    role: 'user' | 'assistant';
+    content: string;
+    sections?: MessageSection[];
+    loading?: boolean;
+    streaming?: boolean;
+  };
+}
+
+export default function Message({ message }: MessageProps): ReactNode {
+  const [openSection, setOpenSection] = useState<number | null>(null);
+
+  if (message.role === 'user') {
     return (
       <div className="message message-user">
         <div className="message-avatar">🧙</div>
@@ -18,7 +33,9 @@ export default function Message({ message }) {
       <div className="message message-assistant">
         <div className="message-avatar">⚔️</div>
         <div className="message-bubble loading">
-          <span className="dot" /><span className="dot" /><span className="dot" />
+          <span className="dot" />
+          <span className="dot" />
+          <span className="dot" />
         </div>
       </div>
     );
@@ -32,8 +49,10 @@ export default function Message({ message }) {
       <div className="message-bubble">
         <ReactMarkdown
           components={{
-            a: ({ href, children }) => (
-              <a href={href} target="_blank" rel="noreferrer">{children}</a>
+            a: ({ href, children }: { href?: string; children: ReactNode }) => (
+              <a href={href} target="_blank" rel="noreferrer">
+                {children}
+              </a>
             ),
           }}
         >
@@ -43,11 +62,11 @@ export default function Message({ message }) {
 
         {sections.length > 0 && (
           <div className="chips">
-            {sections.map((section, i) => (
+            {sections.map((section, i): ReactNode => (
               <button
                 key={i}
-                className={`chip ${openSection === i ? "chip-active" : ""}`}
-                onClick={() => setOpenSection(openSection === i ? null : i)}
+                className={`chip ${openSection === i ? 'chip-active' : ''}`}
+                onClick={(): void => setOpenSection(openSection === i ? null : i)}
               >
                 {section.title}
               </button>
