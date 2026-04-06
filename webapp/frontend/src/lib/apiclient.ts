@@ -1,6 +1,13 @@
 import { apiConfig } from './env';
 import type { ApiError } from '../types/auth';
 
+export const throwIfError = <T>(response: T | ApiError): T => {
+  if (response && typeof response === 'object' && 'status' in response && 'detail' in response) {
+    throw response as ApiError;
+  }
+  return response as T;
+};
+
 const getAuthToken = (): string | null => {
   return localStorage.getItem('auth_token');
 };
@@ -46,21 +53,17 @@ const refreshAuthToken = async (): Promise<boolean> => {
   return refreshPromise;
 };
 
-interface FetchOptions extends RequestInit {
-  skipErrorHandling?: boolean;
-}
+interface FetchOptions extends RequestInit {}
 
 export const fetchApi = async <T = unknown>(
   url: string,
   options: FetchOptions = {}
-): Promise<T> => {
-  const { skipErrorHandling = false, ...fetchOptions } = options;
-
+): Promise<T | ApiError> => {
   const fullUrl = url.startsWith('http') ? url : `${apiConfig.baseUrl}${url}`;
 
   const headers: HeadersInit = {
     'Content-Type': 'application/json',
-    ...fetchOptions.headers,
+    ...options.headers,
   };
 
   const token = getAuthToken();
@@ -69,14 +72,14 @@ export const fetchApi = async <T = unknown>(
   }
 
   const response = await fetch(fullUrl, {
-    ...fetchOptions,
+    ...options,
     headers,
   });
 
   if (response.status === 401 && token) {
     const refreshed = await refreshAuthToken();
     if (refreshed) {
-      return fetchApi<T>(url, { ...options, skipErrorHandling });
+      return fetchApi<T>(url, options);
     }
   }
 
@@ -90,12 +93,10 @@ export const fetchApi = async <T = unknown>(
       const json = await response.json();
       error.detail = json.detail || json.message || error.detail;
     } catch {
-      // Response body not JSON
+      // Silent catch
     }
 
-    if (!skipErrorHandling) {
-      throw error;
-    }
+    return error;
   }
 
   const text = await response.text();

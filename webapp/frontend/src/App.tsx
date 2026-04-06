@@ -150,7 +150,13 @@ export default function App(): ReactNode {
       );
 
       const reader = res.body?.getReader();
-      if (!reader) throw new Error('No response body');
+      if (!reader) {
+        dispatch({
+          type: 'ERROR',
+          payload: 'No response from server. Is the backend running?',
+        });
+        return;
+      }
 
       const decoder = new TextDecoder();
       let fullText = '';
@@ -169,7 +175,7 @@ export default function App(): ReactNode {
           try {
             sections = JSON.parse(parts[1]);
           } catch {
-            // Ignore JSON parse errors
+            // Silent catch
           }
         } else {
           fullText += chunk;
