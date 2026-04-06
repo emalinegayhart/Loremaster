@@ -1,3 +1,4 @@
+import { API_BASE_URL } from './env';
 import type { ApiError } from '../types/auth';
 
 export const throwIfError = <T>(response: T | ApiError): T => {
@@ -28,7 +29,7 @@ const refreshAuthToken = async (): Promise<boolean> => {
 
   refreshPromise = (async () => {
     try {
-      const response = await fetch('/api/auth/refresh', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/refresh`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -58,6 +59,7 @@ export const fetchApi = async <T = unknown>(
   url: string,
   options: FetchOptions = {}
 ): Promise<T | ApiError> => {
+  const fullUrl = url.startsWith('http') ? url : `${API_BASE_URL}${url}`;
 
   const headers: HeadersInit = {
     'Content-Type': 'application/json',
@@ -69,7 +71,7 @@ export const fetchApi = async <T = unknown>(
     headers.Authorization = `Bearer ${token}`;
   }
 
-  const response = await fetch(url, {
+  const response = await fetch(fullUrl, {
     ...options,
     headers,
   });
