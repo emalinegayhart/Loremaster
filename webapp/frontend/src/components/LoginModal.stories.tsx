@@ -1,6 +1,8 @@
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import LoginModal from './LoginModal';
 
-export default {
+const meta: Meta<typeof LoginModal> = {
   title: 'Auth/LoginModal',
   component: LoginModal,
   tags: ['autodocs'],
@@ -16,8 +18,14 @@ export default {
   },
 };
 
-export const Default = {
-  args: {},
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    isOpen: true,
+    onClose: () => alert('Modal closed'),
+  },
   decorators: [
     (Story) => (
       <div className="w-full max-w-sm">
@@ -27,8 +35,11 @@ export const Default = {
   ],
 };
 
-export const DarkBackground = {
-  args: {},
+export const DarkBackground: Story = {
+  args: {
+    isOpen: true,
+    onClose: () => alert('Modal closed'),
+  },
   parameters: {
     backgrounds: { default: 'dark' },
   },
@@ -41,8 +52,11 @@ export const DarkBackground = {
   ],
 };
 
-export const MobileSize = {
-  args: {},
+export const MobileSize: Story = {
+  args: {
+    isOpen: true,
+    onClose: () => alert('Modal closed'),
+  },
   parameters: {
     viewport: {
       defaultViewport: 'mobile1',
@@ -57,8 +71,11 @@ export const MobileSize = {
   ],
 };
 
-export const FullWidth = {
-  args: {},
+export const FullWidth: Story = {
+  args: {
+    isOpen: true,
+    onClose: () => alert('Modal closed'),
+  },
   decorators: [
     (Story) => (
       <div className="w-96">
