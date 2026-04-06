@@ -17,7 +17,7 @@ export default function LoginModal({ isOpen, onClose }) {
         <button className="login-modal-close" onClick={onClose} aria-label="Close login">
           ×
         </button>
-        <GoldButton href="/api/auth/login" aria-label="Sign in with Google">
+        <GoldButton href="/api/auth/google" aria-label="Sign in with Google">
           Sign in with Google
         </GoldButton>
       </div>
