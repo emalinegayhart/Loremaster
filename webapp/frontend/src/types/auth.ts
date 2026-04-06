@@ -29,6 +29,12 @@ export interface RefreshTokenResponse {
   token: string;
 }
 
+export interface AuthCallbackResponse {
+  success: boolean;
+  user?: User;
+  message?: string;
+}
+
 export interface ApiError {
   detail: string;
   status: number;
