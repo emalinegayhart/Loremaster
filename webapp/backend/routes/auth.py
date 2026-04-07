@@ -8,6 +8,7 @@ Handles:
 - POST /api/auth/logout - Clear tokens
 """
 
+import os
 import logging
 from fastapi import APIRouter, Response, HTTPException, Depends, status, Request
 from fastapi.responses import RedirectResponse
@@ -108,7 +109,8 @@ async def google_callback(
         access_token = jwt_service.create_access_token(user_id=user.id)
         refresh_token = jwt_service.create_refresh_token(user_id=user.id)
         
-        response = RedirectResponse(url="/app", status_code=status.HTTP_302_FOUND)
+        frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173")
+        response = RedirectResponse(url=f"{frontend_url}/auth/callback", status_code=status.HTTP_302_FOUND)
         
         response.set_cookie(
             key="access_token",
