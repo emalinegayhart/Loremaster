@@ -31,7 +31,11 @@ from routes.auth import router as auth_router
 from middleware.auth_middleware import TokenExtractionMiddleware, ProtectedRouteMiddleware
 
 SecretService.load()
-init_db()
+
+try:
+    init_db()
+except Exception as e:
+    log.warning(f"Database initialization failed: {e}")
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)

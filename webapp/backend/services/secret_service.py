@@ -27,7 +27,7 @@ class SecretService:
         """Load all secrets from environment"""
         cls.GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
         cls.GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
-        cls.GOOGLE_REDIRECT_URI = os.getenv("GOOGLE_REDIRECT_URI", "http://localhost:8000/api/auth/callback")
+        cls.GOOGLE_REDIRECT_URI = os.getenv("GOOGLE_REDIRECT_URI", "http://localhost:8080/api/auth/google/callback")
         
         cls.JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
         
