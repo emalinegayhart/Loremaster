@@ -1,4 +1,5 @@
 import React from 'react';
+import { API_BASE_URL } from '../lib/env';
 import GoldButton from './GoldButton';
 import './LoginModal.css';
 
@@ -22,7 +23,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps): React.
         <button className="login-modal-close" onClick={onClose} aria-label="Close login">
           ×
         </button>
-        <GoldButton href="/api/auth/google" aria-label="Sign in with Google">
+        <GoldButton href={`${API_BASE_URL}/api/auth/google`} aria-label="Sign in with Google">
           Sign in with Google
         </GoldButton>
       </div>
