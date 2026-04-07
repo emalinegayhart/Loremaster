@@ -51,8 +51,6 @@ const RESOURCES: Resource[] = [
 ];
 
 export default function ResourceSidebar({ onLearnPromptClick }: ResourceSidebarProps): ReactNode {
-  const ENABLE_LEARN_PROMPT = import.meta.env.VITE_ENABLE_LEARN_PROMPT === 'true';
-
   return (
     <nav className="resource-sidebar">
       <div className="sidebar-title">Other Resources</div>
@@ -68,15 +66,13 @@ export default function ResourceSidebar({ onLearnPromptClick }: ResourceSidebarP
           {r.name}
         </a>
       ))}
-      {ENABLE_LEARN_PROMPT && (
-        <button
-          className="learn-prompt-btn"
-          onClick={onLearnPromptClick}
-          aria-label="Learn to Prompt"
-        >
-          Learn 2 Prompt
-        </button>
-      )}
+      <button
+        className="learn-prompt-btn"
+        onClick={onLearnPromptClick}
+        aria-label="Learn to Prompt"
+      >
+        Learn 2 Prompt
+      </button>
       <a
         href="https://github.com/emalinegayhart/loremaster"
         target="_blank"
