@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { useAuth } from '../hooks/useAuth';
 
 interface Resource {
   name: string;
@@ -51,6 +52,7 @@ const RESOURCES: Resource[] = [
 ];
 
 export default function ResourceSidebar({ onLearnPromptClick }: ResourceSidebarProps): ReactNode {
+  const { user } = useAuth();
   const ENABLE_LEARN_PROMPT = import.meta.env.VITE_ENABLE_LEARN_PROMPT === 'true';
 
   return (
@@ -68,7 +70,7 @@ export default function ResourceSidebar({ onLearnPromptClick }: ResourceSidebarP
           {r.name}
         </a>
       ))}
-      {ENABLE_LEARN_PROMPT && (
+      {ENABLE_LEARN_PROMPT && !user && (
         <button
           className="learn-prompt-btn"
           onClick={onLearnPromptClick}
