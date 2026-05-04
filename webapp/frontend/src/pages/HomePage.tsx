@@ -191,7 +191,7 @@ export function HomePage(): ReactNode {
     } catch (err) {
       dispatch({
         type: 'ERROR',
-        payload: 'Something went wrong. Is the backend running?',
+        payload: 'I\'m still waking up... try again in 1 minute',
       });
     }
   }
