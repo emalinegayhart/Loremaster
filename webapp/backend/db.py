@@ -11,12 +11,16 @@ log = logging.getLogger(__name__)
 # Initialize secrets first
 SecretService.load()
 
-# Create engine
+# Create engine with connection pooling
 engine = create_engine(
     SecretService.DATABASE_URL,
     echo=False,
     future=True,
     pool_pre_ping=True,  # Test connections before using them
+    pool_size=10,  # Number of connections to keep in the pool
+    max_overflow=20,  # Additional connections beyond pool_size
+    pool_recycle=3600,  # Recycle connections after 1 hour to avoid stale connections
+    pool_timeout=30,  # Timeout waiting for a connection (seconds)
 )
 
 # Session factory
