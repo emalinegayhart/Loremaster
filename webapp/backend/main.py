@@ -11,6 +11,7 @@ import psycopg2
 import psycopg2.extras
 import anthropic
 from elasticsearch import Elasticsearch
+from elasticsearch.exceptions import ConnectionError as ESConnectionError, RequestError as ESRequestError
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, JSONResponse
@@ -35,15 +36,26 @@ from middleware.auth_middleware import TokenExtractionMiddleware, ProtectedRoute
 
 SecretService.load()
 
+logging.basicConfig(level=logging.INFO)
+log = logging.getLogger(__name__)
+
 try:
     init_db()
 except Exception as e:
     log.warning(f"Database initialization failed: {e}")
 
-logging.basicConfig(level=logging.INFO)
-log = logging.getLogger(__name__)
+es = Elasticsearch(
+    ES_ENDPOINT,
+    api_key=ES_API_KEY,
+    timeout=30,
+    max_retries=3,
+    retry_on_timeout=True,
+    connection_class_kwargs={
+        "request_timeout": 30,
+        "timeout": 30,
+    }
+)
 
-es     = Elasticsearch(ES_ENDPOINT, api_key=ES_API_KEY)
 claude = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
 es_service = ElasticsearchService(es)
@@ -128,41 +140,48 @@ def build_retrievers(query: str) -> list:
 
 
 def search_wowpedia(query: str, limit: int = 5) -> list[dict]:
-    result = es.search(
-        index=ES_INDEX,
-        body={
-            "retriever": {
-                "rrf": {
-                    "retrievers": build_retrievers(query),
-                    "rank_window_size": 50,
-                    "rank_constant": 20,
-                }
-            },
-            "highlight": {
-                "fields": {
-                    "content": {
-                        "fragment_size": 1500,
-                        "number_of_fragments": 3,
+    try:
+        result = es.search(
+            index=ES_INDEX,
+            body={
+                "retriever": {
+                    "rrf": {
+                        "retrievers": build_retrievers(query),
+                        "rank_window_size": 50,
+                        "rank_constant": 20,
                     }
-                }
-            },
-            "size": limit,
-            "_source": ["title", "url", "summary"],
-        }
-    )
+                },
+                "highlight": {
+                    "fields": {
+                        "content": {
+                            "fragment_size": 1500,
+                            "number_of_fragments": 3,
+                        }
+                    }
+                },
+                "size": limit,
+                "_source": ["title", "url", "summary"],
+            }
+        )
 
-    pages = []
-    for hit in result["hits"]["hits"]:
-        src       = hit["_source"]
-        summary   = src.get("summary", "")
-        highlight = " ".join(hit.get("highlight", {}).get("content", []))
-        snippet   = summary + (" " + highlight if highlight and highlight not in summary else "")
-        pages.append({
-            "title":   src.get("title", ""),
-            "url":     src.get("url", ""),
-            "snippet": snippet,
-        })
-    return pages
+        pages = []
+        for hit in result["hits"]["hits"]:
+            src       = hit["_source"]
+            summary   = src.get("summary", "")
+            highlight = " ".join(hit.get("highlight", {}).get("content", []))
+            snippet   = summary + (" " + highlight if highlight and highlight not in summary else "")
+            pages.append({
+                "title":   src.get("title", ""),
+                "url":     src.get("url", ""),
+                "snippet": snippet,
+            })
+        return pages
+    except ESConnectionError as e:
+        log.error("Failed to connect to Elasticsearch at %s: %s", ES_ENDPOINT, e)
+        raise
+    except Exception as e:
+        log.error("Elasticsearch search failed: %s", e, exc_info=True)
+        raise
 
 
 def build_system_prompt(context_pages: list[dict]) -> str:
@@ -193,7 +212,33 @@ Available information:
 
 @app.get("/api/health")
 def health():
-    return {"status": "ok"}
+    health_status = {
+        "status": "ok",
+        "services": {
+            "api": "ok",
+            "elasticsearch": "unknown",
+            "anthropic": "unknown"
+        }
+    }
+    
+    try:
+        es.info()
+        health_status["services"]["elasticsearch"] = "ok"
+    except ESConnectionError as e:
+        health_status["services"]["elasticsearch"] = f"error: {str(e)}"
+        health_status["status"] = "degraded"
+    except Exception as e:
+        health_status["services"]["elasticsearch"] = f"error: {str(e)}"
+        health_status["status"] = "degraded"
+    
+    try:
+        if claude.api_key:
+            health_status["services"]["anthropic"] = "ok"
+    except Exception as e:
+        health_status["services"]["anthropic"] = f"error: {str(e)}"
+        health_status["status"] = "degraded"
+    
+    return health_status
 
 
 @app.post("/api/chat")
@@ -257,8 +302,17 @@ async def chat(request: Request, req: ChatRequest):
                     sections = []
                 yield f"\n[SECTIONS_JSON]{json.dumps(sections)}"
 
+        except ESConnectionError as e:
+            log.error("Elasticsearch connection error: %s", e)
+            yield f"Error: {str(e)}\n[SECTIONS_JSON][]"
+        except ESRequestError as e:
+            log.error("Elasticsearch request error: %s", e)
+            yield f"Error: {str(e)}\n[SECTIONS_JSON][]"
+        except anthropic.APIError as e:
+            log.error("Anthropic API error: %s", e)
+            yield f"Error: {str(e)}\n[SECTIONS_JSON][]"
         except Exception as e:
-            log.error("Stream error: %s", e)
+            log.error("Stream error: %s", type(e).__name__, exc_info=True)
             yield f"Error: {str(e)}\n[SECTIONS_JSON][]"
 
     return StreamingResponse(stream(), media_type="text/plain")
