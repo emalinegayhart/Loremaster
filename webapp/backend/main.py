@@ -1,7 +1,9 @@
 import sys
 import json
 import logging
+import asyncio
 from pathlib import Path
+from contextlib import asynccontextmanager
 
 sys.path.insert(0, str(Path(__file__).parent))
 
@@ -26,6 +28,7 @@ from config import (
 )
 
 from services import SecretService
+from services.elasticsearch_service import ElasticsearchService
 from db import init_db
 from routes.auth import router as auth_router
 from middleware.auth_middleware import TokenExtractionMiddleware, ProtectedRouteMiddleware
@@ -43,9 +46,17 @@ log = logging.getLogger(__name__)
 es     = Elasticsearch(ES_ENDPOINT, api_key=ES_API_KEY)
 claude = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
+es_service = ElasticsearchService(es)
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    task = asyncio.create_task(es_service.keep_alive())
+    yield
+    task.cancel()
+
 limiter = Limiter(key_func=get_remote_address)
 
-app = FastAPI(title="Loremaster API")
+app = FastAPI(title="Loremaster API", lifespan=lifespan)
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
