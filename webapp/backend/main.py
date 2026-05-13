@@ -72,15 +72,14 @@ app = FastAPI(title="Loremaster API", lifespan=lifespan)
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-app.add_middleware(ProtectedRouteMiddleware)
-app.add_middleware(TokenExtractionMiddleware)
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.add_middleware(ProtectedRouteMiddleware)
+app.add_middleware(TokenExtractionMiddleware)
 
 app.include_router(auth_router)
 
