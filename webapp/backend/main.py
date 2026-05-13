@@ -47,13 +47,7 @@ except Exception as e:
 es = Elasticsearch(
     ES_ENDPOINT,
     api_key=ES_API_KEY,
-    timeout=30,
-    max_retries=3,
-    retry_on_timeout=True,
-    connection_class_kwargs={
-        "request_timeout": 30,
-        "timeout": 30,
-    }
+    request_timeout=30,
 )
 
 claude = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
