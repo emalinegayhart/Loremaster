@@ -1,5 +1,10 @@
 {
   "deploy": {
-    "sleepApplication": false
+    "sleepApplication": false,
+    "multiRegionConfig": {
+      "us-west2": {
+        "numReplicas": 2
+      }
+    }
   }
 }
