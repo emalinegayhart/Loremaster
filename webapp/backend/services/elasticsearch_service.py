@@ -12,7 +12,7 @@ class ElasticsearchService:
     async def keep_alive(self):
         while True:
             try:
-                self.es.info()
+                await asyncio.to_thread(self.es.info)
                 await asyncio.sleep(540)
             except Exception as e:
                 log.error("Failed to keep ES alive: %s", e)

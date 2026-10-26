@@ -244,7 +244,7 @@ async def chat(request: Request, req: ChatRequest):
     )
 
     log.info("Searching ES for: %s", user_message)
-    context_pages = search_wowpedia(user_message)
+    context_pages = await asyncio.to_thread(search_wowpedia, user_message)
     log.info("Found %d context pages", len(context_pages))
 
     system_prompt = build_system_prompt(context_pages)
